@@ -21,7 +21,7 @@ export function embeddedImages() {
           const buffer = await sharp(path.join('public', asset)).resize({ width: 1920, withoutEnlargement: true }).webp({ quality: 88, alphaQuality: 100 }).toBuffer()
           map[asset] = `data:image/webp;base64,${buffer.toString('base64')}`
         }
-        return html.replace('</head>', `<script>globalThis.__WEEK05_ASSETS__=${JSON.stringify(map).replace(/</g, '\\u003c')}</script></head>`)
+        return html.replace('</body>', `<script>globalThis.__WEEK05_ASSETS__=${JSON.stringify(map).replace(/</g, '\\u003c')}</script></body>`)
       },
     },
   }

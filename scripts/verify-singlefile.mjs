@@ -23,6 +23,8 @@ assert(!/\b(?:import|export)\s[^;]+from\s*["']/i.test(html), '不得含未打包
 assert(html.includes('globalThis.__WEEK05_ASSETS__='), '必須內嵌圖片')
 for (const match of html.matchAll(/url\(\s*["']?([^)'"]+)/gi)) assert(match[1].startsWith('data:') || match[1].startsWith('#') || match[1].startsWith('%23'), '不得含外部或相對路徑字型 / CSS 圖片：' + match[1].slice(0,100))
 assert(html.includes('payment-stage.ecpay.com.tw'), '必須限制綠界測試環境')
+const fontLicense = fs.readFileSync('public/fonts/LICENSE.txt', 'utf8').replace(/<\/script/gi, '<\\/script')
+html = html.replace('</body>', `<script type="text/plain" id="material-symbols-license">Material Symbols subset by Google\nSource: https://github.com/google/material-design-icons\n${fontLicense}</script></body>`)
 fs.writeFileSync(file, html)
 fs.mkdirSync('submission', { recursive: true })
 fs.writeFileSync('submission/index.html', html)

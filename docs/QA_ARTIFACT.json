@@ -1,10 +1,13 @@
 {
   "date": "2026-10-07",
-  "current_project_files_scanned": 137,
+  "current_project_files_scanned": 138,
   "legacy_term_matches": 0,
   "submission_dist_identical": true,
-  "html_bytes": 6704033,
-  "html_sha256": "7aa8d26aa9b26bc14e1f50e91f13fdafcf3a34ac2bf675d275aaa55761a50319",
+  "html_bytes": 6715946,
+  "html_sha256": "3ee30fd88e489490c743fa791ff57fe7af229eff327a542f6cf448a957a3e6c2",
   "frontend_test_key_or_old_api_matches": 0,
-  "scope_note": "Current files only; original project and historical Git commits not rewritten."
+  "scope_note": "Current files only; original project and historical Git commits not rewritten.",
+  "render_live_commit": "7f7e3bc",
+  "mobile_qa_commit": "0f5bf22",
+  "last_verified_pages_run": 37571446542
 }

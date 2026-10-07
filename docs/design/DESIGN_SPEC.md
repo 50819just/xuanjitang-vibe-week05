@@ -4,7 +4,7 @@
 
 狀態：Implementation Foundation  
 最後更新：2026-08-14  
-設計依據：`SPEC.md`、`docs/design/STITCH_UI_PROMPT.md`、Stitch 正式 22 張畫面、現有 Logo 資產
+歷史設計依據：既有設計規格、Stitch 畫面與Logo資產；本輪未附全部歷史來源，功能驗收只依根目錄 `SPEC.md`。
 
 ## 1. 文件目的與優先順序
 
