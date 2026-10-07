@@ -1,28 +1,31 @@
 # 部署驗證狀態
 
-更新：2026-10-07。
+更新：2026-10-07。只記錄實際驗證，不把可部署當作已部署。
 
-- 本機獨立複製：完成；原專案未改。
-- 新 repo 名稱：xuanjitang-vibe-week05。
-- GitHub 認證：使用者親自完成官方 CLI 授權。
-- GitHub 儲存庫建立／push：完成，https://github.com/50819just/xuanjitang-vibe-week05 。
-- GitHub Pages：首次部署成功，https://50819just.github.io/xuanjitang-vibe-week05/ 。Actions run 37568853165 通過，首頁／JS／CSS／主圖／404 fallback HTTP 200，並確認無舊 API 網址。
-- 新 Render stage API：設定檔完成，尚未建立服務或取得實際網址。
-- 綠界程式：stage-only 安全調整完成；本輪完整付款／回呼／查單 E2E 尚未通過。
-- VS Code：已開啟本專案資料夾並由介面檔案總管確認。
-- 單一 HTML 最終交付：尚未完成。
+| 項目 | 狀態／證據 |
+|---|---|
+| 新專案 | 文件／第五週作業1006_擇日館；獨立Git，原專案未改 |
+| GitHub | https://github.com/50819just/xuanjitang-vibe-week05 ；建立與push完成 |
+| GitHub Pages | https://50819just.github.io/xuanjitang-vibe-week05/ ；單檔網站公開瀏覽器實測可操作 |
+| Pages Actions | 7f7e3bc的37570272607成功；最終交付提交的執行結果另補 |
+| Render | https://xuanjitang-week05-api.onrender.com ；獨立Free Web Service，dashboard已顯示Live |
+| health | https://xuanjitang-week05-api.onrender.com/api/health ；HTTP成功，environment=stage |
+| 前後端連接 | VITE_API_BASE_URL已設定新Render；瀏覽器實際送出申請與建立交易成功 |
+| 綠界 | 真正測試頁與主動查單已驗；最終付款／實際通知／回站成功尚未驗完 |
+| 單一HTML | dist/index.html、submission/index.html相同；CSS/JS/展示圖片/圖示字型內嵌 |
+| VS Code | 新專案已開啟，檔案總管確認src／server |
+| 截圖 | docs/screenshots/，公開網站實拍 |
 
-免費 Render 服務休眠／重啟可清除 JSON 資料，僅供短期測試。不得將此版本稱正式預約／收款系統。
+## 後端設定
+- branch main、Node24、npm ci、npm start、health `/api/health`。
+- ECPAY_ENV=stage，DEMO_CONFIRM_ENABLED=true。
+- FRONTEND_BASE_URL指向本作業Pages；APP_BASE_URL以Render外部網址回退。
+- 僅使用官方公開測試帳密，未配置正式帳密。
+- Render根網址不是前端首頁；請用health連結檢查。
 
-## 本機已驗證
-- npm run lint：通過。
-- npm test：4/4 通過，含官方 SHA256 範例、空欄位、竄改防護及 stage 限制。
-- npm run build：通過。
-- npm audit：原有 3 項高風險相依套件已以相容修補更新，目前 0 項。
-- API：health、必填驗證、建立虛構預約、未確認不能付款、NT$5,000/800/4,200、錯誤簽章拒收、SimulatePaid 不標 paid、未知訂單拒絕，皆通過。
-- 本機服務：前端 5175、API 3005；與舊站分離。
+## 部署取捨
+Render免費方案可能休眠，冷啟動請稍候重試；JSON測試資料在重啟或部署可能遺失。不能把這版稱為正式預約與收款系統。
+為保留正在等待使用者確認的測試交易，最後的純前端／文件提交使用官方支援的 `[skip render]` 標記；GitHub Pages仍正常建置，後端功能不需重新部署。來源：https://render.com/docs/deploys 。
 
-- 本機瀏覽器預覽：工具無法確認管理政策而拒絕，未繞過；因此尚不宣稱視覺／完整瀏覽器 QA 通過。
-
-## 後端待辦
-Render 登入頁已開啟，等待使用者登入既有帳號並授權 Free 獨立服務。前端 VITE_API_BASE_URL 尚未設定，表單會明確提示，不會將資料送至舊站。
+## 作業交付
+`submission/README.md`包含動機、公開連結、具體規格、實拍截圖、AI迭代與限制；繳交前仍需本人填入學校／學號／系級／姓名，並在文字輸入區插入截圖。

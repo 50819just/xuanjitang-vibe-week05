@@ -12,7 +12,7 @@ export const trustPrinciples = [
   { icon: 'person_check', title: '老師人工確認', description: '逐一檢視需求，非系統套版' },
   { icon: 'payments', title: '費用事前說明', description: '確認金額後再進行付款' },
   { icon: 'edit_calendar', title: '依實際需求安排', description: '配合雙方時程規劃' },
-  { icon: 'support_agent', title: 'LINE／電話人工聯繫', description: '透過 LINE 或電話溝通細節' },
+  { icon: 'support_agent', title: '聯繫方式示意', description: '展示未來人工溝通方式，測試版不實際聯繫' },
 ]
 
 export const principleStrip = [
@@ -25,7 +25,7 @@ export const workflow = [
   { step: '1', title: '選擇服務與需求' },
   { step: '2', title: '填寫希望辦理期間與基本資料' },
   { step: '3', title: '老師人工確認內容與費用' },
-  { step: '4', title: '確認服務、費用與安排後，正式成立預約' },
+  { step: '4', title: '模擬確認安排與費用（不成立真實預約）' },
 ]
 
 export const faq = [
@@ -43,7 +43,7 @@ export const faq = [
   },
   {
     q: '資料還沒準備齊，可以先申請嗎？',
-    a: '可以，您可以先透過表單描述大致需求，後續由專人聯繫時再確認所需補充的資料。',
+    a: '可以先以虛構資料描述需求，補充欄位可留白。測試版不會有專人實際聯繫。',
   },
 ]
 

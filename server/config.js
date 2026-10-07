@@ -48,7 +48,7 @@ function resolveOrigin(url) {
 }
 
 // 以下 MerchantID / HashKey / HashIV 預設值為綠界官方公開的測試環境帳密，
-// 僅供本機開發 stage 測試使用，不是正式金鑰；正式環境必須以環境變數覆蓋。
+// 僅供 stage 測試使用，不是正式金鑰；此專案禁止切換正式金流。
 export const appConfig = {
   port: Number(getConfigValue('PORT', 3005)),
   appBaseUrl: getConfigValue('APP_BASE_URL', getConfigValue('RENDER_EXTERNAL_URL', 'http://localhost:3005')),

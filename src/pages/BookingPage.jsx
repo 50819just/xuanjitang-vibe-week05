@@ -337,7 +337,7 @@ function BookingPage() {
       <header className="mb-10 md:mb-16 text-center">
         <MaskedHeading className="text-style-headline-lg text-ink mb-4">預約申請</MaskedHeading>
         <p className="text-style-body-md text-tea-brown" data-aos="fade-up" data-aos-delay="120">
-          預約申請送出後，不代表正式預約成立。我們將於確認後與您聯繫。
+          本頁僅供虛構資料測試，不成立真實預約，也不會有顧問實際聯繫。
         </p>
       </header>
 

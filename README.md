@@ -28,8 +28,12 @@ Render 根網址沒有一般網站首頁，請用 `/api/health` 看啟動狀態�
 - `docs/DEPLOYMENT_STATUS.md`：前後端部署與驗證狀態。
 - `docs/design/`：保留的視覺參考，不取代本次功能規格。
 - `submission/README.md`：可複製到作業文字輸入區的交付說明。
-- `submission/index.html`：本機建置產生的單一成品，與 `dist/index.html` 相同。
-- 介面截圖於 `docs/screenshots/`；實際拍攝完成後記錄於 QA。
+- [`submission/index.html`](submission/index.html)：已提交的單一成品，與本機 `dist/index.html` 相同；GitHub 大檔預覽可能需按 Download raw file。
+- `docs/screenshots/`：由實際公開網站拍攝的介面截圖，非設計稿。
+
+![桌機首頁](docs/screenshots/desktop-home.png)
+
+[手機預約截圖](docs/screenshots/mobile-booking.png)・[必填驗證截圖](docs/screenshots/mobile-validation.png)
 
 ## 操作方式
 1. 開啟作品 → 選擇服務 → 開始預約。

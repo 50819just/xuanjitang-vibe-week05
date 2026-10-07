@@ -79,7 +79,7 @@ function Header() {
           isTransparent ? 'bg-ink/50 md:backdrop-blur-sm text-on-primary' : 'bg-paper/95 backdrop-blur-md border-b border-ink/10'
         }`}
       >
-        <div className={`flex items-center px-6 md:px-10 lg:px-[96px] py-4 md:py-5 lg:py-6 max-w-[1440px] mx-auto ${
+        <div className={`flex items-center px-4 sm:px-6 md:px-10 lg:px-[96px] py-4 md:py-5 lg:py-6 max-w-[1440px] mx-auto ${
           isTransparent ? 'justify-end lg:justify-center' : 'justify-between'
         }`}>
           {!isTransparent ? (
@@ -125,7 +125,7 @@ function Header() {
             {!isTransparent ? (
               <a
                 href={routeHref('/booking')}
-                className="bg-vermilion text-on-primary hover:bg-primary px-6 py-2 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-[2px] text-style-body-md md:text-[17px] transition-colors shrink-0"
+                className="hidden md:inline-flex bg-vermilion text-on-primary hover:bg-primary px-6 py-2 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-[2px] text-style-body-md md:text-[17px] transition-colors shrink-0"
                 onClick={(event) => {
                   event.preventDefault()
                   navigateTo(primaryCta.path)
