@@ -1,0 +1,37 @@
+{
+  "name": "xuanjitang-vibe-week05",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5175 --strictPort",
+    "server": "node server/index.js",
+    "dev:all": "node scripts/dev.mjs",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "node server/index.js",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "aos": "^2.3.4",
+    "gsap": "^3.15.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^9.39.4",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.0.4"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

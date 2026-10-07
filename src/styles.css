@@ -1,0 +1,289 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-fixed: #ffdad4;
+  --color-primary-container: #9e4b3d;
+  --color-on-background: #1d1c16;
+  --color-outline-variant: #dac1bc;
+  --color-tertiary-container: #69625c;
+  --color-surface-tint: #974638;
+  --color-secondary-fixed: #fcddc4;
+  --color-error-container: #ffdad6;
+  --color-on-surface: #1d1c16;
+  --color-on-tertiary: #ffffff;
+  --color-paper: #f6f1e7;
+  --color-tertiary: #514b45;
+  --color-error: #ba1a1a;
+  --color-on-surface-variant: #55433f;
+  --color-surface-dim: #dedad0;
+  --color-on-tertiary-fixed-variant: #4c4640;
+  --color-primary: #803428;
+  --color-secondary-fixed-dim: #dec1a9;
+  --color-background: #fef9ef;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface: #fef9ef;
+  --color-tea-brown: #6b5542;
+  --color-surface-bright: #fef9ef;
+  --color-surface-container: #f2ede3;
+  --color-outline: #88726e;
+  --color-on-secondary-fixed: #281809;
+  --color-on-error-container: #93000a;
+  --color-on-tertiary-container: #e9dfd7;
+  --color-tertiary-fixed-dim: #cec5bd;
+  --color-on-primary-container: #ffd8d2;
+  --color-primary-fixed-dim: #ffb4a7;
+  --color-on-error: #ffffff;
+  --color-surface-variant: #e7e2d8;
+  --color-ink: #29241f;
+  --color-on-primary-fixed: #3e0401;
+  --color-on-tertiary-fixed: #1f1b16;
+  --color-on-primary-fixed-variant: #792f23;
+  --color-surface-container-high: #ede8de;
+  --color-secondary-container: #fcddc4;
+  --color-on-secondary: #ffffff;
+  --color-vermilion: #9e4b3d;
+  --color-on-secondary-fixed-variant: #574331;
+  --color-secondary: #705a47;
+  --color-surface-container-highest: #e7e2d8;
+  --color-inverse-surface: #32302a;
+  --color-inverse-on-surface: #f5f0e6;
+  --color-on-primary: #ffffff;
+  --color-tertiary-fixed: #ebe1d9;
+  --color-surface-container-low: #f8f3e9;
+  --color-on-secondary-container: #77604c;
+  --color-inverse-primary: #ffb4a7;
+
+  --font-serif-cn: 'Noto Serif TC', 'PMingLiU', serif;
+  --font-sans-cn: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  --font-calligraphy: 'Ma Shan Zheng', var(--font-serif-cn);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-ink);
+    font-family: var(--font-sans-cn);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif-cn);
+  }
+}
+
+/* Stitch 正式畫面的文字樣式 token（font-family + font-size + line-height + weight 一次套用） */
+.text-style-headline-lg {
+  font-family: var(--font-serif-cn);
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .text-style-headline-lg {
+    font-size: 48px;
+    letter-spacing: -0.01em;
+  }
+}
+.text-style-headline-md {
+  font-family: var(--font-serif-cn);
+  font-size: 28px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.text-style-title-lg {
+  font-family: var(--font-serif-cn);
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+.text-style-hero-headline {
+  font-family: var(--font-calligraphy);
+  font-size: 46px;
+  line-height: 1.35;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+@media (min-width: 768px) {
+  .text-style-hero-headline {
+    font-size: 68px;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+  }
+}
+
+/* 副標題：hero 說明文字，跟大標題、內文分開一層，字級較小、字距較開，
+   讀起來像標題底下的引言，而不是一般內文段落。 */
+.text-style-service-calligraphy {
+  font-family: var(--font-calligraphy);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+@media (min-width: 768px) {
+  .text-style-service-calligraphy {
+    font-size: 36px;
+  }
+}
+
+.text-style-hero-subtitle {
+  font-family: var(--font-serif-cn);
+  font-size: 17px;
+  line-height: 1.75;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+@media (min-width: 768px) {
+  .text-style-service-calligraphy {
+  font-family: var(--font-calligraphy);
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+}
+@media (min-width: 768px) {
+  .text-style-service-calligraphy {
+    font-size: 36px;
+  }
+}
+
+.text-style-hero-subtitle {
+    font-size: 19px;
+  }
+}
+
+/* Hero 文字疊在照片上，遮罩調亮後靠這個陰影撐住可讀性 */
+.hero-text-shadow {
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.55),
+    0 1px 4px rgba(0, 0, 0, 0.45);
+}
+.text-style-body-lg {
+  font-family: var(--font-sans-cn);
+  font-size: 18px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+.text-style-body-md {
+  font-family: var(--font-sans-cn);
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+.text-style-label-sm {
+  font-family: var(--font-sans-cn);
+  font-size: 13px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 24;
+  line-height: 1;
+}
+
+.paper-texture {
+  background-color: var(--color-paper);
+  background-image: radial-gradient(#d3cbbd 0.5px, transparent 0.5px);
+  background-size: 16px 16px;
+}
+
+/* 宣紙顆粒紋理，取自 Stitch 正式畫面（純 SVG data URI，不需外部素材），
+   讓大面積色塊有紙感層次，不再是一片死平的顏色。 */
+.bg-paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* 首頁 Hero：讓背景照片先淡入，文字區塊（標題／說明／按鈕）延遲後再滑入，
+   做出「先有圖片、過一輪才有字」的進場節奏。 */
+@keyframes hero-image-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.hero-image-fade-in {
+  animation: hero-image-fade-in 0.9s ease-out both;
+}
+
+/* 首頁文字與 PNG 標示採分段淡入，保留畫面初載入的閱讀節奏。 */
+@keyframes hero-content-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-content-reveal {
+  opacity: 0;
+  animation: hero-content-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-content-reveal-1 { animation-delay: 0.22s; }
+.hero-content-reveal-2 { animation-delay: 0.38s; }
+.hero-content-reveal-3 { animation-delay: 0.54s; }
+.hero-content-reveal-4 { animation-delay: 0.7s; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-fade-in,
+  .hero-content-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.ink-divider {
+  border-bottom: 0.5px solid rgba(41, 36, 31, 0.1);
+}
+
+.form-line-input {
+  border: none;
+  border-bottom: 1px solid var(--color-ink);
+  background-color: transparent;
+  border-radius: 0;
+  padding: 8px 0;
+  width: 100%;
+  font-family: var(--font-sans-cn);
+  color: var(--color-ink);
+}
+.form-line-input:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom-color: var(--color-vermilion);
+}
+.form-line-input::placeholder {
+  color: rgba(41, 36, 31, 0.4);
+}
+
+.radio-chip {
+  border: 1px solid rgba(107, 85, 66, 0.2);
+  color: var(--color-tea-brown);
+  background: transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.radio-chip.is-selected {
+  background-color: var(--color-vermilion);
+  color: var(--color-on-primary);
+  border-color: var(--color-vermilion);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-vermilion);
+  outline-offset: 2px;
+}
