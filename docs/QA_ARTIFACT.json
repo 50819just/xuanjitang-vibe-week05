@@ -3,16 +3,23 @@
   "current_project_files_scanned": 147,
   "legacy_term_matches": 0,
   "submission_dist_identical": true,
-  "html_bytes": 6722434,
-  "html_sha256": "b1cd618abc265534cbeb76b7c986b0a312ff830698c25d4e281809a7590aef7d",
+  "html_bytes": 6720521,
+  "html_sha256": "d06f94d98411554e8ef19293766bfdfef7c8a43c140fe39d816aa4f475b6fef7",
   "frontend_test_key_or_old_api_matches": 0,
   "scope_note": "Current files only; original project and historical Git commits not rewritten.",
   "render_live_commit": "7f7e3bc",
-  "mobile_qa_commit": "0f5bf22",
-  "last_verified_pages_run": 37571844651,
-  "tracked_files_scanned": 142,
+  "mobile_qa_commit": "348ebd1",
+  "last_verified_pages_run": 37573406628,
+  "tracked_files_scanned": 146,
   "public_html_dist_submission_identical": true,
-  "browser_latest_code_commit": "4e53e92",
+  "browser_latest_code_commit": "35c44ad",
   "icon_rendering": "inline SVG; no icon font ligatures",
-  "regression_tests": 10
+  "regression_tests": 12,
+  "mobile_browser_widths": [
+    390,
+    320
+  ],
+  "validation_screenshot_commit": "35c44ad",
+  "mobile_header": "normal document flow below 1024px; fixed desktop header",
+  "full_visual_sweep_complete": false
 }

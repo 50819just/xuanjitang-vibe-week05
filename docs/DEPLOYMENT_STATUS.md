@@ -7,12 +7,12 @@
 | 新專案 | 文件／第五週作業1006_擇日館；獨立Git，原專案未改 |
 | GitHub | https://github.com/50819just/xuanjitang-vibe-week05 ；建立與push完成 |
 | GitHub Pages | https://50819just.github.io/xuanjitang-vibe-week05/ ；單檔網站公開瀏覽器實測可操作 |
-| Pages Actions | 4e53e92的37571844651成功；公開HTML與submission成品SHA256一致；最新瀏覽器預約與服務預選正常 |
+| Pages Actions | 35c44ad的37573406628成功；390px與320px手機防呆、版面及選單重驗通過；單檔位元核對見QA_ARTIFACT.json |
 | Render | https://xuanjitang-week05-api.onrender.com ；獨立Free Web Service，Deploys最新7f7e3bc顯示Live，測試交易仍在 |
 | health | https://xuanjitang-week05-api.onrender.com/api/health ；HTTP成功，environment=stage |
 | 前後端連接 | VITE_API_BASE_URL已設定新Render；瀏覽器實際送出申請與建立交易成功 |
 | 綠界 | 真正測試頁與主動查單已驗；最終付款／實際通知／回站成功尚未驗完 |
-| 單一HTML | dist/index.html、submission/index.html相同；CSS/JS/展示圖片/圖示字型內嵌 |
+| 單一HTML | dist/index.html、submission/index.html相同；CSS/JS/展示圖片/SVG圖示內嵌 |
 | VS Code | 新專案已開啟，檔案總管確認src／server |
 | 截圖 | docs/screenshots/，公開網站實拍 |
 
