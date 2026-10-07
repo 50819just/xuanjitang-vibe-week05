@@ -33,7 +33,7 @@ test('固定導覽預留實際高度，不使用固定80px假設', () => {
 test('手機導覽使用正常排版流，固定導覽僅限桌機', () => {
   const header = fs.readFileSync('src/components/layout/Header.jsx', 'utf8')
   assert(header.includes('relative lg:fixed'))
-  assert(header.includes('bg-paper text-ink lg:bg-ink/50'))
+  assert(header.includes('bg-paper/95'))
 })
 
 test('必填錯誤顯示在欄位前，聚焦並捲入可視區域', () => {
@@ -43,4 +43,12 @@ test('必填錯誤顯示在欄位前，聚焦並捲入可視區域', () => {
   assert(booking.includes("scrollIntoView({ block: 'start'"))
   assert(booking.includes('[stepError, validationAttempt]'))
   assert(booking.includes('flex flex-wrap justify-between'))
+})
+
+
+test('首頁及內頁共用可辨識品牌導覽，不出現灰色空帶', () => {
+  const header = fs.readFileSync('src/components/layout/Header.jsx', 'utf8')
+  assert(!header.includes('isTransparent'))
+  assert(!header.includes('bg-ink/50'))
+  assert(header.includes('玄機堂擇日舘'))
 })

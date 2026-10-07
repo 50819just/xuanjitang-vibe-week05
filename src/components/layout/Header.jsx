@@ -14,23 +14,14 @@ function handleNavClick(link) {
   navigateTo(link.path)
 }
 
-const SCROLL_THRESHOLD = 80
-
 function Header() {
   const { pathname } = useRouter()
-  const isHome = pathname === '/'
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(
-    typeof window !== 'undefined' ? window.scrollY > SCROLL_THRESHOLD : false,
-  )
   const headerRef = useRef(null)
   const closeButtonRef = useRef(null)
   const menuButtonRef = useRef(null)
 
-  // 首頁 hero 需要透明黑 nav（不顯示 logo），但捲出 hero 後（例如捲到「服務項目」）
-  // 要切換回跟其他頁面一樣的不透明 nav，並顯示 logo，版型也要跟其他頁面一致，
-  // 這樣「有 logo」跟「沒 logo」兩種狀態切換時，nav 內容的位置才不會跳動。
-  const isTransparent = isHome && !isScrolled
+  // 首頁與內頁共用品牌導覽，避免測試提示上方形成灰色空帶。
 
   useLayoutEffect(() => {
     const header = headerRef.current
@@ -42,16 +33,6 @@ function Header() {
     observer.observe(header)
     return () => observer.disconnect()
   }, [])
-
-  useEffect(() => {
-    function handleScroll() {
-      setIsScrolled(window.scrollY > SCROLL_THRESHOLD)
-    }
-
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [pathname])
 
   useEffect(() => {
     if (!isMenuOpen) {
@@ -89,18 +70,13 @@ function Header() {
           否則 inset-0 只會貼齊 header 自己的高度，不會蓋滿整個視窗。 */}
       <header
         ref={headerRef}
-        className={`relative lg:fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          isTransparent ? 'bg-paper text-ink lg:bg-ink/50 lg:backdrop-blur-sm lg:text-on-primary' : 'bg-paper/95 backdrop-blur-md border-b border-ink/10'
-        }`}
+        className="relative lg:fixed top-0 left-0 right-0 z-50 bg-paper/95 backdrop-blur-md border-b border-ink/10"
       >
-        <div className={`flex items-center px-4 sm:px-6 md:px-10 lg:px-[96px] py-4 md:py-5 lg:py-6 max-w-[1440px] mx-auto ${
-          isTransparent ? 'justify-between lg:justify-center' : 'justify-between'
-        }`}>
-          {(
-            <a
+        <div className="flex items-center justify-between px-4 sm:px-6 md:px-10 lg:px-[96px] py-4 md:py-5 lg:py-6 max-w-[1440px] mx-auto">
+          <a
               href={routeHref('/')}
               aria-label="回到首頁"
-              className={`flex items-center gap-2 shrink-0 ${isTransparent ? 'lg:hidden' : ''}`}
+              className="flex items-center gap-2 shrink-0"
               onClick={(event) => {
                 event.preventDefault()
                 navigateTo('/')
@@ -112,8 +88,7 @@ function Header() {
                 src={assetUrl('branding/logo-symbol-on-light.png')}
               />
               <span className="text-style-title-lg md:text-[24px] lg:text-[26px] tracking-wide text-ink">玄機堂擇日舘</span>
-            </a>
-          )}
+          </a>
 
           <nav className="hidden lg:flex gap-8 xl:gap-10" aria-label="主要導覽">
             {primaryNav.map((link) => (
@@ -122,8 +97,8 @@ function Header() {
                 href={getNavHref(link)}
                 className={`text-style-body-md lg:text-[17px] xl:text-[18px] transition-colors duration-300 ${
                   isNavLinkActive(link, pathname)
-                    ? `${isTransparent ? 'text-on-primary border-on-primary' : 'text-vermilion border-vermilion'} border-b-2 pb-1`
-                    : `${isTransparent ? 'text-on-primary/90 hover:text-on-primary' : 'text-ink hover:text-vermilion'}`
+                    ? 'text-vermilion border-vermilion border-b-2 pb-1'
+                    : 'text-ink hover:text-vermilion'
                 }`}
                 onClick={(event) => {
                   event.preventDefault()
@@ -135,8 +110,7 @@ function Header() {
             ))}
           </nav>
 
-          <div className={`flex items-center gap-2 ${isTransparent ? 'lg:hidden' : ''}`}>
-            {!isTransparent ? (
+          <div className="flex items-center gap-2">
               <a
                 href={routeHref('/booking')}
                 className="hidden md:inline-flex bg-vermilion text-on-primary hover:bg-primary px-6 py-2 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-[2px] text-style-body-md md:text-[17px] transition-colors shrink-0"
@@ -147,14 +121,11 @@ function Header() {
               >
                 {primaryCta.label}
               </a>
-            ) : null}
 
             <button
               ref={menuButtonRef}
               type="button"
-              className={`lg:hidden inline-flex items-center justify-center w-11 h-11 shrink-0 ${
-                isTransparent ? 'text-ink lg:text-on-primary' : 'text-ink'
-              }`}
+              className="lg:hidden inline-flex items-center justify-center w-11 h-11 shrink-0 text-ink"
               aria-label="開啟導覽選單"
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav-drawer"
