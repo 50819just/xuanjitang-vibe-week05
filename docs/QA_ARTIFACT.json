@@ -1,6 +1,6 @@
 {
   "date": "2026-10-07",
-  "current_project_files_scanned": 138,
+  "current_project_files_scanned": 143,
   "legacy_term_matches": 0,
   "submission_dist_identical": true,
   "html_bytes": 6715946,
@@ -9,5 +9,8 @@
   "scope_note": "Current files only; original project and historical Git commits not rewritten.",
   "render_live_commit": "7f7e3bc",
   "mobile_qa_commit": "0f5bf22",
-  "last_verified_pages_run": 37571446542
+  "last_verified_pages_run": 37571844651,
+  "tracked_files_scanned": 142,
+  "public_html_dist_submission_identical": true,
+  "browser_latest_code_commit": "4e53e92"
 }

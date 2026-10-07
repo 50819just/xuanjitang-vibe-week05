@@ -59,6 +59,9 @@
 - 手機QA發現320px頂部按鈕擠到選單，調整成小螢幕保留選單，預約入口仍在選單與內文。
 
 ## 來源與使用限制
-本作品是本人既有擇日館網站的獨立改作，重用部分原有設計、素材與程式；這次新增獨立部署、單檔交付、測試環境限制、驗證修正和QA。未宣稱全部從零製作。完整規格與迭代記錄保留在 `SPEC.md` 和 `docs/CHANGELOG.md`。
+本作品是本人既有擇日館網站的獨立改作，重用部分原有設計、素材與程式；這次新增獨立部署、單檔交付、測試環境限制、驗證修正和QA。未宣稱全部從零製作。完整規格與迭代記錄：
+- [功能規格書](https://github.com/50819just/xuanjitang-vibe-week05/blob/main/SPEC.md)
+- [AI修改紀錄](https://github.com/50819just/xuanjitang-vibe-week05/blob/main/docs/CHANGELOG.md)
+- [檢查結果與尚未驗證項目](https://github.com/50819just/xuanjitang-vibe-week05/blob/main/docs/QA_2026-10-07.md)
 
 請只使用虛構測試資料，不輸入真實個資、正式帳密或信用卡。示意登入不是真正帳號系統，LINE未啟用。Render免費服務可能休眠，初次操作請稍等後重試；重啟／部署可能清除測試資料。這些是展示版限制，正式營運仍需資料庫、真正認證、權限與安全審查。
