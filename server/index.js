@@ -36,7 +36,13 @@ function sendRedirect(response, location) {
 function collectBody(request) {
   return new Promise((resolve, reject) => {
     let data = ''
+    let bytes = 0
     request.on('data', (chunk) => {
+      bytes += chunk.length
+      if (bytes > 65536) {
+        reject(new Error('請求內容過大；測試表單上限為 64KB。'))
+        return
+      }
       data += chunk
     })
     request.on('end', () => resolve(data))
@@ -121,6 +127,11 @@ function determinePaymentOutcome(tradeInfo, order) {
 const server = createServer(async (request, response) => {
   const url = new URL(request.url, appConfig.appBaseUrl)
   const pathname = url.pathname
+  const origin = request.headers.origin
+  if (origin && origin !== appConfig.frontendOrigin && !['/api/ecpay/return', '/api/ecpay/order-result'].includes(pathname)) {
+    sendJson(response, 403, { success: false, message: '來源網站不允許存取此測試 API' })
+    return
+  }
 
   if (request.method === 'OPTIONS') {
     sendJson(response, 204, {})
