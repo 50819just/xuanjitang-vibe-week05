@@ -1,6 +1,7 @@
+import Icon from '../ui/Icon'
 import { routeHref } from '../../lib/routes'
 import { assetUrl } from '../../lib/assets'
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { navigateTo, navigateToSection, useRouter } from '../../hooks/useRouter'
 import { primaryNav, primaryCta, isNavLinkActive, getNavHref } from '../../data/navigation'
 
@@ -22,6 +23,7 @@ function Header() {
   const [isScrolled, setIsScrolled] = useState(
     typeof window !== 'undefined' ? window.scrollY > SCROLL_THRESHOLD : false,
   )
+  const headerRef = useRef(null)
   const closeButtonRef = useRef(null)
   const menuButtonRef = useRef(null)
 
@@ -29,6 +31,17 @@ function Header() {
   // 要切換回跟其他頁面一樣的不透明 nav，並顯示 logo，版型也要跟其他頁面一致，
   // 這樣「有 logo」跟「沒 logo」兩種狀態切換時，nav 內容的位置才不會跳動。
   const isTransparent = isHome && !isScrolled
+
+  useLayoutEffect(() => {
+    const header = headerRef.current
+    if (!header) return undefined
+    // Measure the actual header, including font changes, zoom and responsive wrapping.
+    const measure = () => document.documentElement.style.setProperty('--site-header-height', `${header.getBoundingClientRect().height}px`)
+    measure()
+    const observer = new ResizeObserver(measure)
+    observer.observe(header)
+    return () => observer.disconnect()
+  }, [])
 
   useEffect(() => {
     function handleScroll() {
@@ -75,6 +88,7 @@ function Header() {
       {/* backdrop-blur 會建立新的 containing block，drawer 的 fixed overlay 不能放在這個 header 裡面，
           否則 inset-0 只會貼齊 header 自己的高度，不會蓋滿整個視窗。 */}
       <header
+        ref={headerRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
           isTransparent ? 'bg-ink/50 md:backdrop-blur-sm text-on-primary' : 'bg-paper/95 backdrop-blur-md border-b border-ink/10'
         }`}
@@ -146,7 +160,7 @@ function Header() {
               aria-controls="mobile-nav-drawer"
               onClick={() => setIsMenuOpen(true)}
             >
-              <span className="material-symbols-outlined">menu</span>
+              <Icon>menu</Icon>
             </button>
           </div>
         </div>
@@ -176,7 +190,7 @@ function Header() {
                 className="inline-flex items-center justify-center w-11 h-11 text-ink"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <span className="material-symbols-outlined">close</span>
+                <Icon>close</Icon>
               </button>
             </div>
 

@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { useState } from 'react'
 import { navigateTo, useSearchParam } from '../hooks/useRouter'
 import { services, isOnsiteRelevant, getServiceById } from '../data/services'
@@ -374,7 +375,7 @@ function BookingPage() {
             className="px-6 md:px-8 py-3 text-style-label-sm text-tea-brown hover:text-ink transition-colors flex items-center gap-2"
             onClick={handleBack}
           >
-            <span className="material-symbols-outlined text-sm">arrow_back</span>
+            <Icon className="text-sm">arrow_back</Icon>
             {currentStepIndex === 0 ? '回到首頁' : '上一步'}
           </button>
 
@@ -386,7 +387,7 @@ function BookingPage() {
               onClick={handleSubmit}
             >
               {isSubmitting ? '送出中…' : '送出預約申請'}
-              <span className="material-symbols-outlined text-sm">check</span>
+              <Icon className="text-sm">check</Icon>
             </button>
           ) : (
             <button

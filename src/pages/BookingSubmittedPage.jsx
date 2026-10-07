@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { routeHref } from '../lib/routes'
 import { useEffect, useState } from 'react'
 import { navigateTo, useRouter, useSearchParam } from '../hooks/useRouter'
@@ -67,7 +68,7 @@ function BookingSubmittedPage() {
           className="w-24 h-24 border-2 border-vermilion flex items-center justify-center relative overflow-hidden bg-surface-container-lowest"
           style={{ transform: 'rotate(-3deg)' }}
         >
-          <span className="material-symbols-outlined text-vermilion text-[48px]">check_circle</span>
+          <Icon className="text-vermilion text-[48px]">check_circle</Icon>
         </div>
       </div>
 

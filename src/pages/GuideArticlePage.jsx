@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { routeHref } from '../lib/routes'
 import { navigateTo } from '../hooks/useRouter'
 import { useDocumentHead } from '../hooks/useDocumentHead'
@@ -146,9 +147,7 @@ function GuideArticlePage({ slug }) {
               >
                 <summary className="text-style-body-lg text-ink cursor-pointer list-none flex justify-between items-center gap-4">
                   <h3 className="text-style-body-lg text-ink m-0">{item.q}</h3>
-                  <span className="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0">
-                    expand_more
-                  </span>
+                  <Icon className="group-open:rotate-180 transition-transform shrink-0">expand_more</Icon>
                 </summary>
                 <p className="text-style-body-md text-tea-brown mt-4 pt-4 border-t border-ink/10">{item.a}</p>
               </details>
@@ -189,7 +188,7 @@ function GuideArticlePage({ slug }) {
           }}
         >
           開始預約
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          <Icon className="text-sm">arrow_forward</Icon>
         </a>
       </section>
     </div>

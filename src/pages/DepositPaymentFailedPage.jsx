@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { useEffect, useState } from 'react'
 import { navigateTo, useRouter, useSearchParam } from '../hooks/useRouter'
 import { queryDepositOrder, createDepositOrder } from '../lib/api'
@@ -62,9 +63,7 @@ function DepositPaymentFailedPage() {
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-vermilion/50 to-transparent opacity-50" />
 
         <div className="flex flex-col items-center text-center mb-12">
-          <span className="material-symbols-outlined text-[64px] text-error mb-6" data-aos="zoom-in">
-            error
-          </span>
+          <Icon className="text-[64px] text-error mb-6" data-aos="zoom-in">error</Icon>
           <MaskedHeading className="text-style-headline-lg text-ink mb-4" delay={0.15}>
             付款未完成
           </MaskedHeading>
@@ -116,14 +115,14 @@ function DepositPaymentFailedPage() {
             onClick={handleRetry}
             disabled={isRetrying || !record?.bookingId || record?.paymentStatus === 'paid'}
           >
-            <span className="material-symbols-outlined">refresh</span>
+            <Icon>refresh</Icon>
             {isRetrying ? '正在重新建立…' : isMember ? '重新支付預約訂金' : '登入後重新支付預約訂金'}
           </button>
           <a
             className="w-full md:w-auto bg-transparent border border-tea-brown text-tea-brown text-style-body-md px-12 py-4 hover:bg-tea-brown/5 transition-colors flex items-center justify-center gap-2"
             href={import.meta.env.BASE_URL}
           >
-            <span className="material-symbols-outlined">support_agent</span>
+            <Icon>support_agent</Icon>
             回到作業首頁（{contact.phone}）
           </a>
         </div>

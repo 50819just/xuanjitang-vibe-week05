@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { routeHref } from '../lib/routes'
 import { assetUrl } from '../lib/assets'
 import { navigateTo } from '../hooks/useRouter'
@@ -45,7 +46,7 @@ function PricingPage() {
               data-aos-delay={(index % 3) * 80}
             >
               <div>
-                <span className="material-symbols-outlined text-tea-brown/50 mb-4 text-3xl">{service.icon}</span>
+                <Icon className="text-tea-brown/50 mb-4 text-3xl">{service.icon}</Icon>
                 <h2 className="text-style-title-lg text-ink mb-2">{service.title}</h2>
                 <p className="text-style-body-md text-tea-brown mb-6">{service.summary}</p>
               </div>
@@ -63,7 +64,7 @@ function PricingPage() {
 
       <section className="mb-16 md:mb-[120px]" data-aos="fade-up">
         <h2 className="text-style-title-lg text-ink mb-8 flex items-center gap-3 justify-center">
-          <span className="material-symbols-outlined text-tea-brown">linear_scale</span>
+          <Icon className="text-tea-brown">linear_scale</Icon>
           服務流程
         </h2>
         <div className="max-w-2xl mx-auto relative before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[0.5px] before:bg-tea-brown/30 space-y-8">
@@ -80,7 +81,7 @@ function PricingPage() {
                 }`}
               >
                 {index === PROCESS_STEPS.length - 1 ? (
-                  <span className="material-symbols-outlined text-[14px] text-tea-brown/60">check</span>
+                  <Icon className="text-[14px] text-tea-brown/60">check</Icon>
                 ) : (
                   <span className={`w-1.5 h-1.5 rounded-full ${index === 0 ? 'bg-vermilion' : 'bg-tea-brown/40'}`} />
                 )}
@@ -105,7 +106,7 @@ function PricingPage() {
           }}
         >
           開始預約
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          <Icon className="text-sm">arrow_forward</Icon>
         </a>
       </section>
       </div>

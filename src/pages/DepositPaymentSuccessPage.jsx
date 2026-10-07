@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { routeHref } from '../lib/routes'
 import { useCallback, useEffect, useState } from 'react'
 import { navigateTo, useSearchParam } from '../hooks/useRouter'
@@ -56,7 +57,7 @@ function DepositPaymentSuccessPage() {
                 data-aos="zoom-in"
               >
                 <div className="absolute inset-1 border border-vermilion/50 rounded-[2px]" />
-                <span className="material-symbols-outlined text-vermilion text-[40px] md:text-[56px]">done</span>
+                <Icon className="text-vermilion text-[40px] md:text-[56px]">done</Icon>
               </div>
 
               <MaskedHeading className="text-style-headline-lg text-ink text-center mb-16 tracking-wide" delay={0.2}>
@@ -102,7 +103,7 @@ function DepositPaymentSuccessPage() {
 
               <div className="w-full border-l-[3px] border-tea-brown bg-surface-container p-6 mb-12">
                 <div className="flex gap-4 items-start">
-                  <span className="material-symbols-outlined text-tea-brown mt-1">info</span>
+                  <Icon className="text-tea-brown mt-1">info</Icon>
                   <div>
                     <span className="text-style-label-sm text-tea-brown block mb-1 tracking-widest uppercase">注意事項</span>
                     <p className="text-style-body-md text-ink">

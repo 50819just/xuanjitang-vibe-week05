@@ -180,14 +180,7 @@
   font-weight: 500;
 }
 
-.material-symbols-outlined {
-  font-variation-settings:
-    'FILL' 0,
-    'wght' 300,
-    'GRAD' 0,
-    'opsz' 24;
-  line-height: 1;
-}
+
 
 .paper-texture {
   background-color: var(--color-paper);
@@ -288,5 +281,9 @@ body {
   outline-offset: 2px;
 }
 
-@font-face { font-family: 'Material Symbols Outlined'; font-style: normal; font-weight: 400; font-display: block; src: url('/fonts/material-symbols.ttf'); }
-.material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-weight: normal; font-style: normal; display: inline-block; line-height: 1; letter-spacing: normal; text-transform: none; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
+
+
+
+/* Inline SVG icons do not depend on browser font loading or ligature settings. */
+.app-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; flex-shrink: 0; }
+html { scroll-padding-top: calc(var(--site-header-height, 100px) + 16px); }

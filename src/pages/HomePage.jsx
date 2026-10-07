@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { routeHref } from '../lib/routes'
 import { assetUrl } from '../lib/assets'
 import { navigateTo } from '../hooks/useRouter'
@@ -96,7 +97,7 @@ function HomePage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {principleStrip.map((item) => (
             <div key={item.label} className="flex items-center justify-center gap-3">
-              <span className="material-symbols-outlined text-vermilion">{item.icon}</span>
+              <Icon className="text-vermilion">{item.icon}</Icon>
               <span className="text-style-body-md text-ink">{item.label}</span>
             </div>
           ))}
@@ -142,7 +143,7 @@ function HomePage() {
                             navigateTo(`/services/${service.id}`)
                           }}
                         >
-                          查看詳情 <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                          查看詳情 <Icon className="text-sm">arrow_forward</Icon>
                         </a>
                       </div>
                     </div>
@@ -164,7 +165,7 @@ function HomePage() {
           <ul className="space-y-4">
             {trustPrinciples.map((item) => (
               <li key={item.title} className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-vermilion">{item.icon}</span>
+                <Icon className="text-vermilion">{item.icon}</Icon>
                 <div>
                   <span className="text-style-body-md text-ink">{item.title}</span>
                   <span className="text-style-label-sm text-tea-brown/70 block">{item.description}</span>
@@ -255,7 +256,7 @@ function HomePage() {
                 <p className="text-style-label-sm text-tea-brown/70 mb-2">{topic.intent}</p>
                 <h3 className="text-style-title-lg text-ink mb-6">{topic.title}</h3>
                 <span className="text-vermilion text-style-body-md flex items-center gap-2">
-                  閱讀說明 <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  閱讀說明 <Icon className="text-sm">arrow_forward</Icon>
                 </span>
               </div>
             </a>
@@ -327,9 +328,7 @@ function HomePage() {
             >
               <summary className="text-style-title-lg text-ink cursor-pointer list-none flex justify-between items-center gap-4">
                 {item.q}
-                <span className="material-symbols-outlined group-open:rotate-180 transition-transform shrink-0">
-                  expand_more
-                </span>
+                <Icon className="group-open:rotate-180 transition-transform shrink-0">expand_more</Icon>
               </summary>
               <p className="text-style-body-md text-tea-brown mt-4 pt-4 border-t border-ink/10">{item.a}</p>
             </details>

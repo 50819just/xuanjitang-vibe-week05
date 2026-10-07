@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { routeHref } from '../lib/routes'
 import { navigateTo } from '../hooks/useRouter'
 import { useDocumentHead } from '../hooks/useDocumentHead'
@@ -77,7 +78,7 @@ function GuidesPage() {
           }}
         >
           開始預約
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          <Icon className="text-sm">arrow_forward</Icon>
         </a>
       </section>
       </div>

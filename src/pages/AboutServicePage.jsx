@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { routeHref } from '../lib/routes'
 import { assetUrl } from '../lib/assets'
 import { navigateTo } from '../hooks/useRouter'
@@ -118,7 +119,7 @@ function AboutServicePage() {
               data-aos="fade-up"
               data-aos-delay={index * 80}
             >
-              <span className="material-symbols-outlined text-vermilion text-4xl">{item.icon}</span>
+              <Icon className="text-vermilion text-4xl">{item.icon}</Icon>
               <h3 className="text-style-title-lg text-ink">{item.title}</h3>
               <p className="text-style-label-sm text-tea-brown">{item.description}</p>
             </div>
@@ -247,7 +248,7 @@ function AboutServicePage() {
           }}
         >
           開始預約
-          <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          <Icon className="text-sm">arrow_forward</Icon>
         </a>
       </section>
       </div>

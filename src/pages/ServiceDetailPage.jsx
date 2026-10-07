@@ -1,3 +1,4 @@
+import Icon from '../components/ui/Icon'
 import { routeHref } from '../lib/routes'
 import { navigateTo } from '../hooks/useRouter'
 import { getServiceById } from '../data/services'
@@ -76,7 +77,7 @@ function ServiceDetailPage({ serviceId }) {
           data-aos="fade-up"
           data-aos-delay="160"
         >
-          <span className="material-symbols-outlined text-[18px]">payments</span>
+          <Icon className="text-[18px]">payments</Icon>
           <span className="text-style-body-md">{detail.priceBadge}</span>
         </div>
         {service.banner ? (
@@ -100,7 +101,7 @@ function ServiceDetailPage({ serviceId }) {
           }}
         >
           {detail.ctaLabel}
-          <span className="material-symbols-outlined">arrow_forward</span>
+          <Icon>arrow_forward</Icon>
         </a>
       </section>
 
@@ -171,7 +172,7 @@ function ServiceDetailPage({ serviceId }) {
               navigateTo('/about-service')
             }}
           >
-            查看完整服務方式 <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            查看完整服務方式 <Icon className="text-sm">arrow_forward</Icon>
           </a>
         </section>
 
@@ -186,7 +187,7 @@ function ServiceDetailPage({ serviceId }) {
             }}
           >
             {detail.ctaLabel}
-            <span className="material-symbols-outlined">arrow_forward</span>
+            <Icon>arrow_forward</Icon>
           </a>
         </section>
       </div>
