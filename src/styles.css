@@ -287,3 +287,13 @@ body {
 /* Inline SVG icons do not depend on browser font loading or ligature settings. */
 .app-icon { display: inline-block; width: 1em; height: 1em; vertical-align: -0.125em; flex-shrink: 0; }
 html { scroll-padding-top: calc(var(--site-header-height, 100px) + 16px); }
+
+/* Mobile header stays in normal flow so it never masks form text while scrolling. */
+.site-shell { padding-top: 0; }
+@media (min-width: 1024px) {
+  .site-shell { padding-top: var(--site-header-height, 100px); }
+}
+.booking-validation { scroll-margin-top: 16px; overflow-wrap: anywhere; }
+@media (min-width: 1024px) {
+  .booking-validation { scroll-margin-top: calc(var(--site-header-height, 100px) + 16px); }
+}

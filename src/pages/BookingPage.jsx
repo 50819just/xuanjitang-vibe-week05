@@ -1,5 +1,5 @@
 import Icon from '../components/ui/Icon'
-import { useState } from 'react'
+import { useLayoutEffect, useRef, useState } from 'react'
 import { navigateTo, useSearchParam } from '../hooks/useRouter'
 import { services, isOnsiteRelevant, getServiceById } from '../data/services'
 import { consentText, dataUsageNoticeSummary } from '../data/siteContent'
@@ -66,6 +66,14 @@ function BookingPage() {
   const [formValue, setFormValue] = useState(() => createInitialBookingForm(preselectedService))
   const [currentStepIndex, setCurrentStepIndex] = useState(0)
   const [stepError, setStepError] = useState('')
+  const [validationAttempt, setValidationAttempt] = useState(0)
+  const validationRef = useRef(null)
+
+  useLayoutEffect(() => {
+    if (!stepError) return
+    validationRef.current?.focus({ preventScroll: true })
+    validationRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' })
+  }, [stepError, validationAttempt])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState('')
 
@@ -93,6 +101,7 @@ function BookingPage() {
     const validationMessage = validateStep(currentStepKey, formValue)
     if (validationMessage) {
       setStepError(validationMessage)
+      setValidationAttempt(previous => previous + 1)
       return
     }
     goToStep(Math.min(currentStepIndex + 1, BOOKING_STEPS.length - 1))
@@ -110,6 +119,7 @@ function BookingPage() {
     const validationMessage = BOOKING_STEPS.map(step => validateStep(step.key, formValue)).find(Boolean)
     if (validationMessage) {
       setStepError(validationMessage)
+      setValidationAttempt(previous => previous + 1)
       return
     }
 
@@ -356,23 +366,24 @@ function BookingPage() {
       ) : null}
 
       <form
-        className="bg-paper p-6 md:p-12 border-[0.5px] border-ink/10 space-y-8 md:space-y-12"
+        className="min-w-0 bg-paper p-6 md:p-12 border-[0.5px] border-ink/10 space-y-8 md:space-y-12"
         onSubmit={(event) => event.preventDefault()}
         data-aos="fade-up"
         data-aos-delay="160"
       >
-        <div className="space-y-6">{stepRenderers[currentStepKey]()}</div>
-
         {stepError ? (
-          <div className="p-4 bg-error-container/30 border border-error/20 text-style-body-md text-on-surface-variant">
+          <div ref={validationRef} role="alert" tabIndex={-1} className="booking-validation p-4 bg-error-container/30 border border-error/20 text-style-body-md text-on-surface-variant focus:outline-2 focus:outline-error">
             {stepError}
           </div>
         ) : null}
 
-        <div className="pt-8 border-t-[0.5px] border-ink/10 flex justify-between items-center gap-4">
+        <div className="space-y-6">{stepRenderers[currentStepKey]()}</div>
+
+
+        <div className="pt-8 border-t-[0.5px] border-ink/10 flex flex-wrap justify-between items-center gap-3">
           <button
             type="button"
-            className="px-6 md:px-8 py-3 text-style-label-sm text-tea-brown hover:text-ink transition-colors flex items-center gap-2"
+            className="whitespace-nowrap shrink-0 px-3 sm:px-6 md:px-8 py-3 text-style-label-sm text-tea-brown hover:text-ink transition-colors flex items-center gap-2"
             onClick={handleBack}
           >
             <Icon className="text-sm">arrow_back</Icon>
@@ -382,7 +393,7 @@ function BookingPage() {
           {currentStepKey === 'review' ? (
             <button
               type="button"
-              className="px-6 md:px-8 py-3 bg-vermilion text-on-primary text-style-label-sm rounded-[2px] hover:bg-primary transition-colors flex items-center gap-2 disabled:opacity-60"
+              className="whitespace-nowrap shrink-0 px-3 sm:px-6 md:px-8 py-3 bg-vermilion text-on-primary text-style-label-sm rounded-[2px] hover:bg-primary transition-colors flex items-center gap-2 disabled:opacity-60"
               disabled={isSubmitting}
               onClick={handleSubmit}
             >
@@ -392,7 +403,7 @@ function BookingPage() {
           ) : (
             <button
               type="button"
-              className="px-6 md:px-8 py-3 bg-vermilion text-on-primary text-style-label-sm rounded-[2px] hover:bg-primary transition-colors"
+              className="whitespace-nowrap shrink-0 px-3 sm:px-6 md:px-8 py-3 bg-vermilion text-on-primary text-style-label-sm rounded-[2px] hover:bg-primary transition-colors"
               onClick={handleNext}
             >
               下一步

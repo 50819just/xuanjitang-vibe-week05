@@ -89,18 +89,18 @@ function Header() {
           否則 inset-0 只會貼齊 header 自己的高度，不會蓋滿整個視窗。 */}
       <header
         ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          isTransparent ? 'bg-ink/50 md:backdrop-blur-sm text-on-primary' : 'bg-paper/95 backdrop-blur-md border-b border-ink/10'
+        className={`relative lg:fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
+          isTransparent ? 'bg-paper text-ink lg:bg-ink/50 lg:backdrop-blur-sm lg:text-on-primary' : 'bg-paper/95 backdrop-blur-md border-b border-ink/10'
         }`}
       >
         <div className={`flex items-center px-4 sm:px-6 md:px-10 lg:px-[96px] py-4 md:py-5 lg:py-6 max-w-[1440px] mx-auto ${
-          isTransparent ? 'justify-end lg:justify-center' : 'justify-between'
+          isTransparent ? 'justify-between lg:justify-center' : 'justify-between'
         }`}>
-          {!isTransparent ? (
+          {(
             <a
               href={routeHref('/')}
               aria-label="回到首頁"
-              className="flex items-center gap-2 shrink-0"
+              className={`flex items-center gap-2 shrink-0 ${isTransparent ? 'lg:hidden' : ''}`}
               onClick={(event) => {
                 event.preventDefault()
                 navigateTo('/')
@@ -113,7 +113,7 @@ function Header() {
               />
               <span className="text-style-title-lg md:text-[24px] lg:text-[26px] tracking-wide text-ink">玄機堂擇日舘</span>
             </a>
-          ) : null}
+          )}
 
           <nav className="hidden lg:flex gap-8 xl:gap-10" aria-label="主要導覽">
             {primaryNav.map((link) => (
@@ -153,7 +153,7 @@ function Header() {
               ref={menuButtonRef}
               type="button"
               className={`lg:hidden inline-flex items-center justify-center w-11 h-11 shrink-0 ${
-                isTransparent ? 'text-on-primary' : 'text-ink'
+                isTransparent ? 'text-ink lg:text-on-primary' : 'text-ink'
               }`}
               aria-label="開啟導覽選單"
               aria-expanded={isMenuOpen}
