@@ -12,6 +12,8 @@ test('首頁與服務圖示全部具有SVG路徑，不依賴字型連字', () =>
   }
   const styles = fs.readFileSync('src/styles.css', 'utf8')
   assert(!styles.includes('material-symbols.ttf'))
+  assert(styles.includes("source(none)"))
+  assert(styles.includes("@source './'"))
   for (const file of fs.readdirSync('src/pages')) {
     if (file.endsWith('.jsx')) assert(!fs.readFileSync(`src/pages/${file}`, 'utf8').includes('material-symbols-outlined'), file)
   }
