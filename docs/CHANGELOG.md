@@ -18,3 +18,6 @@
 
 - 本機 lint／build 與 4/4 單元測試通過；修補 3 項相依套件公告後 audit 為 0。
 - 虛構 API 流程測試通過，並已在 VS Code 載入本專案。完整付款與雲端部署仍待驗。
+
+- 使用者親自完成 GitHub CLI 授權；建立公開新儲存庫並 push。
+- Actions 首次部署成功，公開首頁／主資源 HTTP 200；尚無新 Render API 與完整付款 E2E。

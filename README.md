@@ -3,6 +3,11 @@
 專案名稱：`xuanjitang-vibe-week05`。本專案是本人六角學院舊作的獨立改作，不覆寫舊專案。
 開發環境：React + Vite／Node.js。綠界僅真實測試環境，禁止正式收款，不成立真實預約。
 
+## 已部署的前端
+- GitHub：https://github.com/50819just/xuanjitang-vibe-week05
+- 網站：https://50819just.github.io/xuanjitang-vibe-week05/
+- 前端首次部署及公開資源已驗證；新 API 尚待部署，暫時不能送出與付款。
+
 ## 本機啟動
 ```sh
 npm ci
@@ -25,7 +30,7 @@ npm run build
 
 ## 部署
 - GitHub Pages 部署前端，新的測試 API 另部署 Render；不能沿用舊後端。
-- Render 依 render.yaml 建立 Free Web Service，APP_BASE_URL 填新服務實際 HTTPS 網址，FRONTEND_BASE_URL 填新 Pages 網址。
+- Render 依 render.yaml 建立 Free Web Service，APP_BASE_URL 未設定時自動使用 RENDER_EXTERNAL_URL；FRONTEND_BASE_URL 已設定為新 Pages 網址。
 - GitHub repository variables 的 VITE_API_BASE_URL 填新 API 實際網址，再重新執行 Pages workflow。
 - 未設定 API 時，公開前端只供瀏覽，表單明確提示後端尚未設定，不假裝送出成功。
 - 首次部署狀態與 QA 詳見 docs/DEPLOYMENT_STATUS.md；尚未驗證的部署不能寫成成功。

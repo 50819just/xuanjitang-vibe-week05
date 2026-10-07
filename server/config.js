@@ -51,7 +51,7 @@ function resolveOrigin(url) {
 // 僅供本機開發 stage 測試使用，不是正式金鑰；正式環境必須以環境變數覆蓋。
 export const appConfig = {
   port: Number(getConfigValue('PORT', 3005)),
-  appBaseUrl: getConfigValue('APP_BASE_URL', 'http://localhost:3005'),
+  appBaseUrl: getConfigValue('APP_BASE_URL', getConfigValue('RENDER_EXTERNAL_URL', 'http://localhost:3005')),
   // frontendBaseUrl 可能含部署子路徑（例如 GitHub Pages 專案頁），用於組合使用者會看到的連結；
   // frontendOrigin 只有 scheme+host+port，CORS 標頭一定要用這個，含路徑會讓瀏覽器判定不合法而擋掉請求。
   frontendBaseUrl,

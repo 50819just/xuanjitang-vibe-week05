@@ -13,9 +13,7 @@ services:
         value: stage
       - key: DEMO_CONFIRM_ENABLED
         value: true
-      - key: APP_BASE_URL
-        sync: false
       - key: FRONTEND_BASE_URL
-        sync: false
-# APP_BASE_URL 與 FRONTEND_BASE_URL 須填入新服務及新 Pages 的實際網址，不能用舊站。
+        value: https://50819just.github.io/xuanjitang-vibe-week05
+# APP_BASE_URL 未設定時自動使用 Render 注入的 RENDER_EXTERNAL_URL，避免猜測新服務網址。
 # 免費方案 server/data 是暫存資料，休眠或重啟可能遺失；只供短期測試。

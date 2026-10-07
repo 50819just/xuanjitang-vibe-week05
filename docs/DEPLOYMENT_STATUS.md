@@ -4,9 +4,9 @@
 
 - 本機獨立複製：完成；原專案未改。
 - 新 repo 名稱：xuanjitang-vibe-week05。
-- GitHub 認證：等待使用者完成官方登入授權。
-- GitHub 儲存庫建立／push：尚未完成。
-- GitHub Pages：尚未部署驗證。
+- GitHub 認證：使用者親自完成官方 CLI 授權。
+- GitHub 儲存庫建立／push：完成，https://github.com/50819just/xuanjitang-vibe-week05 。
+- GitHub Pages：首次部署成功，https://50819just.github.io/xuanjitang-vibe-week05/ 。Actions run 37568853165 通過，首頁／JS／CSS／主圖／404 fallback HTTP 200，並確認無舊 API 網址。
 - 新 Render stage API：設定檔完成，尚未建立服務或取得實際網址。
 - 綠界程式：stage-only 安全調整完成；本輪完整付款／回呼／查單 E2E 尚未通過。
 - VS Code：已開啟本專案資料夾並由介面檔案總管確認。
@@ -23,3 +23,6 @@
 - 本機服務：前端 5175、API 3005；與舊站分離。
 
 - 本機瀏覽器預覽：工具無法確認管理政策而拒絕，未繞過；因此尚不宣稱視覺／完整瀏覽器 QA 通過。
+
+## 後端待辦
+Render 登入頁已開啟，等待使用者登入既有帳號並授權 Free 獨立服務。前端 VITE_API_BASE_URL 尚未設定，表單會明確提示，不會將資料送至舊站。
