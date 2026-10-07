@@ -80,7 +80,7 @@ export function useDocumentHead({ title, description, path, structuredData }) {
     upsertMeta('meta[property="og:type"]', { property: 'og:type', content: 'website' })
 
     if (path) {
-      const canonicalHref = `${resolveSiteBaseUrl()}${path}`
+      const canonicalHref = `${resolveSiteBaseUrl()}/#${path}`
       upsertLink('canonical', canonicalHref)
       upsertMeta('meta[property="og:url"]', { property: 'og:url', content: canonicalHref })
     }

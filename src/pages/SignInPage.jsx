@@ -21,7 +21,7 @@ function SignInPage() {
     }
 
     signIn(email.trim())
-    navigateTo(postLoginPath ? decodeURIComponent(postLoginPath) : '/')
+    navigateTo(postLoginPath || '/')
   }
 
   return (

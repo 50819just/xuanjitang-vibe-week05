@@ -1,4 +1,4 @@
-import { isOnsiteRelevant } from '../data/services'
+import { isOnsiteRelevant, getServiceById } from '../data/services'
 
 export const BOOKING_STEPS = [
   { key: 'need', label: '您的需求' },
@@ -26,7 +26,7 @@ export function createInitialBookingForm(preselectedServiceId) {
 
 export function validateStep(stepKey, formValue) {
   if (stepKey === 'need') {
-    if (!formValue.serviceType) {
+    if (!getServiceById(formValue.serviceType)) {
       return '請選擇服務類型'
     }
     if (!formValue.needSummary.trim()) {

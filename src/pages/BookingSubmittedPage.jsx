@@ -1,3 +1,4 @@
+import { routeHref } from '../lib/routes'
 import { useEffect, useState } from 'react'
 import { navigateTo, useRouter, useSearchParam } from '../hooks/useRouter'
 import { fetchBooking, demoConfirmBooking, createDepositOrder } from '../lib/api'
@@ -80,7 +81,7 @@ function BookingSubmittedPage() {
         </p>
 
         <div className="py-6 border-t border-b border-ink/10 my-8 relative">
-          <p className="text-style-body-md text-tea-brown">正式服務內容、費用與安排，將於人工確認後說明。</p>
+          <p className="text-style-body-md text-tea-brown">本展示版的確認與付款均為測試，不成立真實服務。</p>
         </div>
 
         {!bookingId ? (
@@ -90,7 +91,7 @@ function BookingSubmittedPage() {
 
         <a
           className="inline-flex items-center justify-center px-10 py-4 bg-vermilion text-on-primary text-style-body-md tracking-widest hover:bg-primary transition-colors duration-300 mt-8"
-          href="/"
+          href={routeHref('/')}
           onClick={(event) => {
             event.preventDefault()
             navigateTo('/')
@@ -109,7 +110,7 @@ function BookingSubmittedPage() {
             僅供開發／作業驗收使用
           </span>
 
-          {booking?.bookingStatus === 'deposit_ready' ? (
+          {['deposit_ready', 'deposit_payment_pending', 'deposit_payment_failed', 'deposit_paid'].includes(booking?.bookingStatus) ? (
             <div className="space-y-4">
               <p className="text-style-body-md text-ink">
                 Demo 模擬老師已確認：服務總價 NT${booking.confirmedServiceTotal?.toLocaleString('zh-Hant-TW')}，
@@ -124,9 +125,11 @@ function BookingSubmittedPage() {
                 type="button"
                 className="w-full bg-vermilion text-on-primary py-3 text-style-body-md disabled:opacity-60"
                 onClick={handlePayDeposit}
-                disabled={isCreatingDeposit}
+                disabled={isCreatingDeposit || booking?.paymentStatus === 'paid'}
               >
-                {isCreatingDeposit
+                {booking?.paymentStatus === 'paid'
+                  ? '測試訂金已付款（禁止重複付款）'
+                  : isCreatingDeposit
                   ? '正在建立訂金交易…'
                   : isMember
                     ? '支付預約訂金（Demo）'
@@ -136,14 +139,14 @@ function BookingSubmittedPage() {
           ) : (
             <div className="space-y-4">
               <p className="text-style-body-md text-tea-brown">
-                這個工具用來模擬「老師已人工確認服務總價」，正式使用者不會看到這個區塊。
+                這是公開測試工具，不代表真實老師確認；服務總價需為 NT$800 以上的整數。
               </p>
               <label className="flex flex-col gap-2">
                 <span className="text-style-label-sm text-tea-brown">模擬確認的服務總價（NT$）</span>
                 <input
                   className="form-line-input"
                   type="number"
-                  min="1"
+                  min="800"
                   value={demoTotalInput}
                   onChange={(event) => setDemoTotalInput(event.target.value)}
                 />

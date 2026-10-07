@@ -1,3 +1,4 @@
+import { assetUrl } from '../../lib/assets'
 import { navigateTo, navigateToSection } from '../../hooks/useRouter'
 import { contact } from '../../data/siteContent'
 import { footerNav, getNavHref } from '../../data/navigation'
@@ -18,7 +19,7 @@ function Footer() {
         alt=""
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 h-full w-full scale-105 object-cover object-bottom opacity-40 blur-[2px]"
-        src={`${import.meta.env.BASE_URL}branding/banners/site/footer-landscape-v2.jpg`}
+        src={assetUrl('branding/banners/site/footer-landscape-v2.jpg')}
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-surface-container-highest via-surface-container-highest/45 to-surface-container-highest" />
 
@@ -27,7 +28,7 @@ function Footer() {
           <img
             alt="玄機堂擇日舘 Logo"
             className="h-8 w-auto opacity-80"
-            src={`${import.meta.env.BASE_URL}branding/logo-symbol-on-light.png`}
+            src={assetUrl('branding/logo-symbol-on-light.png')}
           />
           <span className="text-style-title-lg text-ink tracking-wide">玄機堂擇日舘</span>
         </div>

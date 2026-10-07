@@ -1,3 +1,4 @@
+import { routeHref } from '../lib/routes'
 import { useCallback, useEffect, useState } from 'react'
 import { navigateTo, useSearchParam } from '../hooks/useRouter'
 import { queryDepositOrder } from '../lib/api'
@@ -5,7 +6,7 @@ import { getServiceById } from '../data/services'
 import MaskedHeading from '../components/ui/MaskedHeading'
 
 function formatCurrency(value) {
-  return Number.isFinite(Number(value)) ? `NT$${Number(value).toLocaleString('zh-Hant-TW')}` : '尚未確認'
+  return value != null && Number.isFinite(Number(value)) ? `NT$${Number(value).toLocaleString('zh-Hant-TW')}` : '尚未確認'
 }
 
 function DepositPaymentSuccessPage() {
@@ -94,7 +95,7 @@ function DepositPaymentSuccessPage() {
                   <span className="text-style-label-sm text-tea-brown block mb-2">尾款金額</span>
                   <span className="text-style-headline-md text-ink">{formatCurrency(record.balanceAmount)}</span>
                   <div className="mt-4 pt-4 border-t border-ink/10">
-                    <p className="text-style-body-md text-on-surface-variant">尾款收取時間與方式，將依老師確認的案件安排說明。</p>
+                    <p className="text-style-body-md text-on-surface-variant">尾款僅展示計算結果，本網站不收取真實款項。</p>
                   </div>
                 </div>
               </div>
@@ -105,7 +106,7 @@ function DepositPaymentSuccessPage() {
                   <div>
                     <span className="text-style-label-sm text-tea-brown block mb-1 tracking-widest uppercase">注意事項</span>
                     <p className="text-style-body-md text-ink">
-                      付款成功僅代表預約訂金已付款，不代表服務已完成，日期／時間仍須人工確認。
+                      測試付款成功，不會扣真錢，也不代表成立真實預約或服務。
                     </p>
                   </div>
                 </div>
@@ -121,7 +122,7 @@ function DepositPaymentSuccessPage() {
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto mt-4">
             <a
               className="bg-surface-container-highest border border-tea-brown/20 text-ink text-style-body-md px-10 py-4 hover:bg-surface-dim transition-colors duration-300 text-center"
-              href="/"
+              href={routeHref('/')}
               onClick={(event) => {
                 event.preventDefault()
                 navigateTo('/')

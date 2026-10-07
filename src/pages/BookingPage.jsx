@@ -106,7 +106,7 @@ function BookingPage() {
   }
 
   const handleSubmit = async () => {
-    const validationMessage = validateStep('review', formValue)
+    const validationMessage = BOOKING_STEPS.map(step => validateStep(step.key, formValue)).find(Boolean)
     if (validationMessage) {
       setStepError(validationMessage)
       return
@@ -148,6 +148,7 @@ function BookingPage() {
         <textarea
           className="form-line-input"
           name="needSummary"
+          maxLength={2000}
           rows="4"
           value={formValue.needSummary}
           onChange={handleFieldChange}
@@ -161,7 +162,7 @@ function BookingPage() {
           name="desiredPeriod"
           value={formValue.desiredPeriod}
           onChange={handleFieldChange}
-          placeholder="例如 2026 年 9 月中旬"
+          placeholder="例如 2026 年 11 月中旬"
         />
       </Field>
     </>
@@ -177,10 +178,11 @@ function BookingPage() {
         <textarea
           className="form-line-input"
           name="serviceSpecificNote"
+          maxLength={2000}
           rows="4"
           value={formValue.serviceSpecificNote}
           onChange={handleFieldChange}
-          placeholder="例如相關人員生辰、地點條件等，若不確定可留空"
+          placeholder="僅填虛構測試資訊，不填真實生辰、地址或身分資料"
         />
       </Field>
 
@@ -200,11 +202,11 @@ function BookingPage() {
   const renderContactStep = () => (
     <>
       <Field label="聯絡人姓名（必填）">
-        <input className="form-line-input" name="contactName" value={formValue.contactName} onChange={handleFieldChange} />
+        <input maxLength={80} className="form-line-input" name="contactName" value={formValue.contactName} onChange={handleFieldChange} />
       </Field>
 
       <Field label="手機號碼（必填）">
-        <input className="form-line-input" name="contactPhone" value={formValue.contactPhone} onChange={handleFieldChange} />
+        <input maxLength={30} className="form-line-input" name="contactPhone" value={formValue.contactPhone} onChange={handleFieldChange} />
       </Field>
 
       <Field label="所在縣市／地區（必填）" hint="完整地址可於人工確認後再補">

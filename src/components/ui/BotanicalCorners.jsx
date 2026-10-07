@@ -1,3 +1,4 @@
+import { assetUrl } from '../../lib/assets'
 const BOTANICAL_ASSETS = {
   bamboo: 'ink-bamboo-corner-v1.jpg',
   plum: 'plum-corner.png',
@@ -7,7 +8,7 @@ const BOTANICAL_ASSETS = {
 }
 
 function BotanicalCorners({ variant = 'bamboo' }) {
-  const source = `${import.meta.env.BASE_URL}branding/banners/site/${BOTANICAL_ASSETS[variant] || BOTANICAL_ASSETS.bamboo}`
+  const source = assetUrl(`branding/banners/site/${BOTANICAL_ASSETS[variant] || BOTANICAL_ASSETS.bamboo}`)
 
   const cornerClasses = 'pointer-events-none fixed top-1/2 z-0 hidden h-[420px] w-auto -translate-y-1/2 mix-blend-multiply xl:block'
 

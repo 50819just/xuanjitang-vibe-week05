@@ -1,3 +1,5 @@
+import { routeHref } from '../../lib/routes'
+import { assetUrl } from '../../lib/assets'
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { navigateTo, navigateToSection, useRouter } from '../../hooks/useRouter'
 import { primaryNav, primaryCta, isNavLinkActive, getNavHref } from '../../data/navigation'
@@ -82,7 +84,7 @@ function Header() {
         }`}>
           {!isTransparent ? (
             <a
-              href="/"
+              href={routeHref('/')}
               aria-label="回到首頁"
               className="flex items-center gap-2 shrink-0"
               onClick={(event) => {
@@ -93,7 +95,7 @@ function Header() {
               <img
                 alt="玄機堂擇日舘 Logo"
                 className="h-8 md:h-9 lg:h-10 w-auto opacity-80"
-                src={`${import.meta.env.BASE_URL}branding/logo-symbol-on-light.png`}
+                src={assetUrl('branding/logo-symbol-on-light.png')}
               />
               <span className="text-style-title-lg md:text-[24px] lg:text-[26px] tracking-wide text-ink">玄機堂擇日舘</span>
             </a>
@@ -122,7 +124,7 @@ function Header() {
           <div className={`flex items-center gap-2 ${isTransparent ? 'lg:hidden' : ''}`}>
             {!isTransparent ? (
               <a
-                href="/booking"
+                href={routeHref('/booking')}
                 className="bg-vermilion text-on-primary hover:bg-primary px-6 py-2 md:px-7 md:py-2.5 lg:px-8 lg:py-3 rounded-[2px] text-style-body-md md:text-[17px] transition-colors shrink-0"
                 onClick={(event) => {
                   event.preventDefault()
@@ -198,7 +200,7 @@ function Header() {
             </nav>
 
             <a
-              href="/booking"
+              href={routeHref('/booking')}
               className="mt-auto bg-vermilion text-on-primary px-6 py-3 rounded-[2px] text-style-body-lg hover:bg-primary transition-colors text-center"
               onClick={(event) => {
                 event.preventDefault()

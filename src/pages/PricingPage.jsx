@@ -1,3 +1,5 @@
+import { routeHref } from '../lib/routes'
+import { assetUrl } from '../lib/assets'
 import { navigateTo } from '../hooks/useRouter'
 import { services } from '../data/services'
 import { contact } from '../data/siteContent'
@@ -26,7 +28,7 @@ function PricingPage() {
         <div className="h-[200px] md:h-[280px] overflow-hidden border border-tea-brown/15 bg-paper">
           <img
             className="w-full h-full object-cover"
-            src={`${import.meta.env.BASE_URL}branding/banners/site/pricing-hero.jpg`}
+            src={assetUrl('branding/banners/site/pricing-hero.jpg')}
             alt="手持毛筆書寫費用說明的情境插畫"
             loading="eager"
           />
@@ -96,7 +98,7 @@ function PricingPage() {
         </p>
         <a
           className="bg-vermilion text-on-primary px-10 py-3 rounded-[2px] text-style-body-lg hover:bg-primary transition-colors duration-300 flex items-center gap-2 mx-auto w-fit"
-          href="/booking"
+          href={routeHref('/booking')}
           onClick={(event) => {
             event.preventDefault()
             navigateTo('/booking')

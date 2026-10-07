@@ -1,3 +1,4 @@
+import { assetUrl } from '../lib/assets'
 export const guidesIntro =
   '這裡整理預約前可以先了解的背景知識與服務方式。內容僅作觀念說明，不提供自動命理結論，實際判斷仍由老師人工確認。'
 
@@ -12,7 +13,7 @@ export const guideTopics = [
     path: '/guides/fengshui-origin',
     intent: '認識「風水」概念的通俗背景',
     title: '風水概念的由來與現代生活中的理解',
-    banner: `${import.meta.env.BASE_URL}branding/banners/guides/fengshui-origin-v2.jpg`,
+    banner: assetUrl('branding/banners/guides/fengshui-origin-v2.jpg'),
     metaDescription:
       '了解「風水」一詞在傳統文化中的通俗背景，以及它與玄機堂擇日、宅事到場服務的關係；內容為一般性說明，不提供自動判斷或特定學派結論。',
     readIntro:
@@ -64,7 +65,7 @@ export const guideTopics = [
     path: '/guides/home-environment-basics',
     intent: '了解宅事／空間問題前可以整理什麼',
     title: '住宅空間諮詢前，可先整理哪些資訊',
-    banner: `${import.meta.env.BASE_URL}branding/banners/guides/home-environment-basics-v2.jpg`,
+    banner: assetUrl('branding/banners/guides/home-environment-basics-v2.jpg'),
     metaDescription:
       '提出住宅空間相關諮詢前，可以先整理哪些基本資訊？本篇整理準備方向，實際判斷仍由老師到場或了解情況後人工確認。',
     readIntro:
@@ -107,7 +108,7 @@ export const guideTopics = [
     path: '/guides/on-site-consultation-guide',
     intent: '了解人工到場與擇日服務的區別',
     title: '到場諮詢與擇日服務的準備方式',
-    banner: `${import.meta.env.BASE_URL}branding/banners/guides/on-site-consultation-guide-v2.jpg`,
+    banner: assetUrl('branding/banners/guides/on-site-consultation-guide-v2.jpg'),
     metaDescription: '到場諮詢與擇日服務的性質不同，這篇說明兩者差異、各自適用情境，以及是否可以一起提出申請。',
     readIntro:
       '到場諮詢與擇日服務，是玄機堂常被一起詢問、但性質不同的兩種服務方向。這篇文章說明兩者的差異、各自適合的情況，以及如果同時有兩種需求，應該怎麼提出申請。實際服務內容與安排，仍以老師人工確認為準。',

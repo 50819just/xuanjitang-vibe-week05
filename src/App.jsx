@@ -1,3 +1,4 @@
+import { routeHref } from './lib/routes'
 import { useEffect } from 'react'
 import AOS from 'aos'
 import { useRouter, navigateTo } from './hooks/useRouter'
@@ -32,7 +33,7 @@ function NotFoundPage() {
       <p className="text-style-body-md text-tea-brown mb-8">這個網址可能已調整，請回到首頁重新開始。</p>
       <a
         className="inline-block bg-vermilion text-on-primary px-8 py-3 rounded-[2px] text-style-title-lg"
-        href="/"
+        href={routeHref('/')}
         onClick={(event) => {
           event.preventDefault()
           navigateTo('/')
@@ -83,7 +84,7 @@ function resolvePage(pathname) {
 }
 
 function App() {
-  const { pathname } = useRouter()
+  const { pathname, search } = useRouter()
 
   useEffect(() => {
     AOS.init({
@@ -96,7 +97,9 @@ function App() {
 
   useEffect(() => {
     AOS.refreshHard()
-  }, [pathname])
+    const section = new URLSearchParams(search).get('section')
+    if (pathname === '/' && section) window.setTimeout(() => document.getElementById(section)?.scrollIntoView(), 80)
+  }, [pathname, search])
 
   return <PageShell>{resolvePage(pathname)}</PageShell>
 }

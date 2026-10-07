@@ -1,3 +1,5 @@
+import { routeHref } from '../lib/routes'
+import { assetUrl } from '../lib/assets'
 import { navigateTo } from '../hooks/useRouter'
 import { services } from '../data/services'
 import { brand, principleStrip, trustPrinciples, workflow, faq } from '../data/siteContent'
@@ -32,7 +34,7 @@ function HomePage() {
         <div className="hero-image-fade-in absolute inset-x-0 bottom-0 top-2 -z-20 overflow-hidden md:top-4">
           <img
             className="h-full w-full object-cover object-[30%_center] sm:object-[38%_center] lg:object-center"
-            src={`${import.meta.env.BASE_URL}branding/banners/site/home-hero-elder.png`}
+            src={assetUrl('branding/banners/site/home-hero-elder.png')}
             alt="老師在工作室書寫與整理傳統擇日資料的情境照片"
             loading="eager"
           />
@@ -45,26 +47,26 @@ function HomePage() {
             <div className="mb-5 sm:mb-6 md:mb-10">
               <h1 className="hero-content-reveal hero-content-reveal-1 mb-2 sm:mb-3 md:mb-4">
                 <img
-                  src={`${import.meta.env.BASE_URL}branding/home-brand-calligraphy.png`}
+                  src={assetUrl('branding/home-brand-calligraphy.png')}
                   alt="玄機堂｜擇日（紅色印章）"
                   className="h-auto w-[210px] drop-shadow-[0_2px_14px_rgba(0,0,0,0.6)] sm:w-[240px] md:w-[300px] lg:w-[440px] xl:w-[500px]"
                 />
               </h1>
               <img
-                src={`${import.meta.env.BASE_URL}branding/home-service-labels-v2.png`}
+                src={assetUrl('branding/home-service-labels-v2.png')}
                 alt="婚嫁擇日、入宅開市、命名命狀"
                 className="hero-content-reveal hero-content-reveal-2 ml-0 h-auto w-[270px] drop-shadow-[0_2px_14px_rgba(0,0,0,0.55)] sm:ml-0 sm:w-[330px] md:ml-[17px] md:w-[400px] lg:ml-[20px] lg:w-[500px]"
               />
             </div>
             <img
-              src={`${import.meta.env.BASE_URL}branding/hero-headline-single-line.png`}
+              src={assetUrl('branding/hero-headline-single-line.png')}
               alt={brand.headline}
               className="hero-content-reveal hero-content-reveal-3 mb-6 h-auto w-full drop-shadow-[0_2px_18px_rgba(0,0,0,0.55)] sm:w-[370px] md:w-[430px] lg:w-[520px]"
             />
             <div className="hero-content-reveal hero-content-reveal-4 flex flex-row justify-center gap-3 sm:gap-4 lg:justify-start">
               <a
                 className="inline-block self-start whitespace-nowrap rounded-[2px] bg-vermilion px-4 py-2 text-center text-[15px] sm:px-8 sm:py-3 sm:text-style-title-lg text-on-primary transition-colors hover:bg-primary"
-                href="/booking"
+                href={routeHref('/booking')}
                 onClick={(event) => {
                   event.preventDefault()
                   navigateTo('/booking')
@@ -74,7 +76,7 @@ function HomePage() {
               </a>
               <a
                 className="inline-block self-start whitespace-nowrap rounded-[2px] border border-on-primary/70 px-4 py-2 text-center text-[15px] sm:px-8 sm:py-3 sm:text-style-title-lg text-on-primary transition-colors hover:bg-on-primary hover:text-ink"
-                href="/about-service"
+                href={routeHref('/about-service')}
                 onClick={(event) => {
                   event.preventDefault()
                   navigateTo('/about-service')
@@ -134,7 +136,7 @@ function HomePage() {
                         <p className="text-style-label-sm text-tea-brown/70 mb-4">{service.pricingLabel}</p>
                         <a
                           className="text-vermilion text-style-title-lg flex items-center gap-2 group-hover:gap-4 transition-all"
-                          href={`/services/${service.id}`}
+                          href={routeHref(`/services/${service.id}`)}
                           onClick={(event) => {
                             event.preventDefault()
                             navigateTo(`/services/${service.id}`)
@@ -174,7 +176,7 @@ function HomePage() {
         <div className="h-[280px] md:h-[360px] overflow-hidden border border-tea-brown/15 bg-paper">
           <img
             className="w-full h-full object-cover"
-            src={`${import.meta.env.BASE_URL}branding/banners/site/home-trust.jpg`}
+            src={assetUrl('branding/banners/site/home-trust.jpg')}
             alt="手持筆審閱案件記錄的情境插畫"
             loading="lazy"
           />
@@ -224,7 +226,7 @@ function HomePage() {
           <h2 className="text-style-headline-md text-ink">擇日與宅事知識</h2>
           <a
             className="text-style-body-md text-vermilion hover:underline w-fit"
-            href="/guides"
+            href={routeHref('/guides')}
             onClick={(event) => {
               event.preventDefault()
               navigateTo('/guides')
@@ -238,7 +240,7 @@ function HomePage() {
             <a
               key={topic.slug}
               className="block bg-surface border border-tea-brown/20 overflow-hidden rounded-[2px] hover:border-tea-brown/50 transition-colors group"
-              href={topic.path}
+              href={routeHref(topic.path)}
               data-aos="fade-up"
               data-aos-delay={index * 80}
               onClick={(event) => {
@@ -344,7 +346,7 @@ function HomePage() {
         <h2 className="text-style-headline-md text-ink mb-6">準備好安排您的重要日程了嗎？</h2>
         <a
           className="inline-block bg-vermilion text-on-primary px-10 py-4 rounded-[2px] text-style-title-lg hover:bg-primary transition-colors"
-          href="/booking"
+          href={routeHref('/booking')}
           onClick={(event) => {
             event.preventDefault()
             navigateTo('/booking')

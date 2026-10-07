@@ -31,7 +31,7 @@ const WELCOME_TEXT =
 
 const BOOKING_TEXT =
   '想開始預約，請點下方連結填寫預約申請表單：\n' +
-  `${appConfig.frontendBaseUrl}/booking\n\n` +
+  `${appConfig.frontendBaseUrl}/#/booking\n\n` +
   '送出後不代表預約成功，老師會先人工確認服務內容、費用與時間，再透過 LINE 或電話與您聯繫。'
 
 const SERVICES_TEXT =
@@ -43,7 +43,7 @@ const PRICING_TEXT =
   '各服務參考價格：\n' +
   services.map((service) => `・${service.title}：${service.pricingLabel}`).join('\n') +
   '\n\n實際費用由老師依案件內容人工確認後才收取預約訂金，不做自動計價。' +
-  `\n完整說明：${appConfig.frontendBaseUrl}/pricing`
+  `\n完整說明：${appConfig.frontendBaseUrl}/#/pricing`
 
 const CONTACT_TEXT =
   `${contact.teacherName}\n電話：${contact.phone}\nEmail：${contact.email}\n地址：${contact.address}\n\n${contact.note}`

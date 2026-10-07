@@ -1,3 +1,4 @@
+import { routeHref } from '../lib/routes'
 import { navigateTo } from '../hooks/useRouter'
 import { getServiceById } from '../data/services'
 import MaskedHeading from '../components/ui/MaskedHeading'
@@ -34,7 +35,7 @@ function ServiceDetailPage({ serviceId }) {
         <p className="text-style-body-md text-tea-brown mb-8">這個服務項目可能已調整，請回到首頁重新選擇。</p>
         <a
           className="inline-block bg-vermilion text-on-primary px-8 py-3 rounded-[2px] text-style-title-lg"
-          href="/"
+          href={routeHref('/')}
           onClick={(event) => {
             event.preventDefault()
             navigateTo('/')
@@ -53,7 +54,7 @@ function ServiceDetailPage({ serviceId }) {
       <nav className="mb-8 text-style-body-md text-tea-brown" aria-label="麵包屑">
         <a
           className="hover:text-vermilion"
-          href="/"
+          href={routeHref('/')}
           onClick={(event) => {
             event.preventDefault()
             navigateTo('/')
@@ -92,7 +93,7 @@ function ServiceDetailPage({ serviceId }) {
         )}
         <a
           className="mt-8 bg-vermilion text-on-primary px-10 py-3 rounded-[2px] border border-vermilion hover:bg-transparent hover:text-vermilion transition-colors duration-300 text-style-title-lg flex items-center gap-2"
-          href={`/booking?service=${service.id}`}
+          href={routeHref(`/booking?service=${service.id}`)}
           onClick={(event) => {
             event.preventDefault()
             navigateTo(`/booking?service=${service.id}`)
@@ -164,7 +165,7 @@ function ServiceDetailPage({ serviceId }) {
           <p className="text-style-body-md text-tea-brown mt-6 max-w-2xl mx-auto text-center">{detail.deliverable}</p>
           <a
             className="mt-4 text-style-body-md text-vermilion hover:underline flex items-center justify-center gap-1"
-            href="/about-service"
+            href={routeHref('/about-service')}
             onClick={(event) => {
               event.preventDefault()
               navigateTo('/about-service')
@@ -178,7 +179,7 @@ function ServiceDetailPage({ serviceId }) {
           <p className="text-style-body-md text-tea-brown mb-6">不確定資料是否齊全也沒關係，先描述需求，後續由老師人工確認。</p>
           <a
             className="bg-vermilion text-on-primary px-12 py-4 rounded-[2px] border border-vermilion hover:bg-transparent hover:text-vermilion transition-colors duration-300 text-style-title-lg inline-flex items-center gap-2"
-            href={`/booking?service=${service.id}`}
+            href={routeHref(`/booking?service=${service.id}`)}
             onClick={(event) => {
               event.preventDefault()
               navigateTo(`/booking?service=${service.id}`)

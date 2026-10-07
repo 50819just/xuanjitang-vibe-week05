@@ -1,4 +1,5 @@
 import { createServer } from 'node:http'
+import { services, isOnsiteRelevant } from '../src/data/services.js'
 import { appConfig } from './config.js'
 import {
   createDepositCheckoutPayload,
@@ -81,6 +82,13 @@ const REQUIRED_BOOKING_FIELDS = [
 ]
 
 function validateBookingPayload(payload) {
+  if (!payload || typeof payload !== 'object' || Array.isArray(payload)) return '表單資料格式錯誤。'
+  const stringFields = [...REQUIRED_BOOKING_FIELDS, 'serviceSpecificNote', 'contactTime', 'onsiteNeed']
+  if (stringFields.some(field => payload[field] !== undefined && (typeof payload[field] !== 'string' || payload[field].length > 2000))) return '欄位必須為文字且不能超過 2,000 字。'
+  if (!services.some(service => service.id === payload.serviceType)) return '請選擇有效的服務類型。'
+  if (!['line', 'phone', 'either'].includes(payload.contactPreference)) return '請選擇有效的聯絡方式。'
+  if (isOnsiteRelevant(payload.serviceType) && !['yes', 'no', 'unsure'].includes(payload.onsiteNeed)) return '請說明是否需要到場。'
+
   const missingField = REQUIRED_BOOKING_FIELDS.find((field) => !String(payload[field] || '').trim())
 
   if (missingField) {
@@ -153,7 +161,8 @@ const server = createServer(async (request, response) => {
         return
       }
 
-      const booking = createBooking(payload)
+      const safePayload = Object.fromEntries([...REQUIRED_BOOKING_FIELDS, 'serviceSpecificNote', 'serviceSpecificUnsure', 'contactTime', 'onsiteNeed', 'consent'].filter(key => key in payload).map(key => [key, payload[key]]))
+      const booking = createBooking(safePayload)
       sendJson(response, 200, {
         success: true,
         message: '預約申請已送出',
@@ -247,7 +256,6 @@ const server = createServer(async (request, response) => {
       const payload = createDepositCheckoutPayload({
         bookingId,
         depositAmount: booking.depositAmount,
-        customerName: booking.requestData?.contactName,
       })
 
       upsertEcpayOrder({
@@ -302,7 +310,7 @@ const server = createServer(async (request, response) => {
 
       sendRedirect(
         response,
-        `${appConfig.frontendBaseUrl}${target}?merchantTradeNo=${merchantTradeNo}${bookingIdParam}`,
+        `${appConfig.frontendBaseUrl}/#${target}?merchantTradeNo=${merchantTradeNo}${bookingIdParam}`,
       )
       return
     }
@@ -361,7 +369,7 @@ const server = createServer(async (request, response) => {
         return
       }
 
-      const outcome = determinePaymentOutcome(tradeInfo, order)
+      const outcome = order.paymentStatus === 'paid' ? 'paid' : determinePaymentOutcome(tradeInfo, order)
 
       const updatedOrder = upsertEcpayOrder({
         merchantTradeNo,

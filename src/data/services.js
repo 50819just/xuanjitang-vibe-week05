@@ -1,16 +1,17 @@
+import { assetUrl } from '../lib/assets.js'
 export const SERVICE_NOTE = '實際服務內容與提供方式於案件確認時說明。'
 export const MVP_PRICE_NOTE = 'MVP 參考價格，非正式固定價目，實際費用由老師依案件確認。'
 
 // 純 Node 環境（如後端 server/lineBot.js）沒有 import.meta.env，需保底避免整個模組載入即崩潰
-const BASE_URL = import.meta.env?.BASE_URL ?? '/'
+
 
 export const services = [
   {
     id: 'marriage',
     title: '婚嫁擇日',
     icon: 'favorite',
-    banner: `${BASE_URL}branding/banners/marriage.png`,
-    cardImage: `${BASE_URL}branding/banners/services/marriage-card-v2.jpg`,
+    banner: assetUrl('branding/banners/marriage.png'),
+    cardImage: assetUrl('branding/banners/services/marriage-card-v2.jpg'),
     summary: '為結婚、訂婚與其他婚嫁安排，先整理需求，再由老師人工確認。',
     note: SERVICE_NOTE,
     pricingLabel: '參考區間 NT$1,500～2,500',
@@ -29,8 +30,8 @@ export const services = [
     id: 'newborn',
     title: '新生兒命狀・命名',
     icon: 'child_care',
-    banner: `${BASE_URL}branding/banners/newborn.png`,
-    cardImage: `${BASE_URL}branding/banners/services/newborn-card-v2.jpg`,
+    banner: assetUrl('branding/banners/newborn.png'),
+    cardImage: assetUrl('branding/banners/services/newborn-card-v2.jpg'),
     summary: '迎接新生兒的重要安排，依實際需求與資料由老師說明。',
     note: SERVICE_NOTE,
     pricingLabel: '參考區間 NT$1,200～2,000',
@@ -50,8 +51,8 @@ export const services = [
     id: 'moving',
     title: '入宅・搬遷擇日',
     icon: 'home_work',
-    banner: `${BASE_URL}branding/banners/moving.png`,
-    cardImage: `${BASE_URL}branding/banners/services/moving-card-v2.jpg`,
+    banner: assetUrl('branding/banners/moving.png'),
+    cardImage: assetUrl('branding/banners/services/moving-card-v2.jpg'),
     summary: '為搬家、入宅與入住新居安排合適的辦理時間。',
     note: SERVICE_NOTE,
     pricingLabel: '參考區間 NT$1,500～2,500',
@@ -71,8 +72,8 @@ export const services = [
     id: 'ancestral',
     title: '神明・祖先事宜',
     icon: 'brightness_high',
-    banner: `${BASE_URL}branding/banners/ancestral.png`,
-    cardImage: `${BASE_URL}branding/banners/services/ancestral-card-v2.jpg`,
+    banner: assetUrl('branding/banners/ancestral.png'),
+    cardImage: assetUrl('branding/banners/services/ancestral-card-v2.jpg'),
     summary: '神明、祖先牌位遷移或祭拜相關需求，可先說明情況。',
     note: SERVICE_NOTE,
     pricingLabel: 'NT$8,000 起',
@@ -92,8 +93,8 @@ export const services = [
     id: 'onsite',
     title: '宅事・到場諮詢',
     icon: 'explore',
-    banner: `${BASE_URL}branding/banners/onsite.png`,
-    cardImage: `${BASE_URL}branding/banners/services/onsite-card-v2.jpg`,
+    banner: assetUrl('branding/banners/onsite.png'),
+    cardImage: assetUrl('branding/banners/services/onsite-card-v2.jpg'),
     summary: '針對住宅或空間需求，由老師確認是否適合到場安排。',
     note: SERVICE_NOTE,
     pricingLabel: '參考起價 NT$2,000 起',
@@ -113,8 +114,8 @@ export const services = [
     id: 'other-date',
     title: '其他擇日需求',
     icon: 'more_horiz',
-    banner: `${BASE_URL}branding/banners/other-date.png`,
-    cardImage: `${BASE_URL}branding/banners/services/other-date-card-v2.jpg`,
+    banner: assetUrl('branding/banners/other-date.png'),
+    cardImage: assetUrl('branding/banners/services/other-date-card-v2.jpg'),
     summary: '不確定該選哪項服務？先描述需求，由老師協助確認。',
     note: SERVICE_NOTE,
     pricingLabel: '參考起價 NT$1,500 起',
@@ -134,8 +135,8 @@ export const services = [
     id: 'other-consult',
     title: '其他服務諮詢',
     icon: 'contact_support',
-    banner: `${BASE_URL}branding/banners/other-consult.png`,
-    cardImage: `${BASE_URL}branding/banners/services/other-consult-card-v2.jpg`,
+    banner: assetUrl('branding/banners/other-consult.png'),
+    cardImage: assetUrl('branding/banners/services/other-consult-card-v2.jpg'),
     summary: '上述未列出的其他傳統禮俗或擇日需求，請描述情況，由老師為您確認。',
     note: SERVICE_NOTE,
     pricingLabel: '參考起價 NT$1,500 起',

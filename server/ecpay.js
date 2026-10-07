@@ -119,7 +119,7 @@ export function createDepositCheckoutPayload({ bookingId, depositAmount }) {
     ItemName: itemName,
     ReturnURL: `${appConfig.appBaseUrl}/api/ecpay/return`,
     OrderResultURL: `${appConfig.appBaseUrl}/api/ecpay/order-result`,
-    ClientBackURL: `${appConfig.frontendBaseUrl}/booking/payment/failed`,
+    ClientBackURL: `${appConfig.frontendBaseUrl}/#/booking/payment/failed`,
     ChoosePayment: 'Credit',
     EncryptType: 1,
     CustomField1: 'Week05Stage',

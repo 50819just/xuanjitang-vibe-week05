@@ -1,3 +1,4 @@
+import { routeHref } from '../lib/routes'
 import { navigateTo } from '../hooks/useRouter'
 import { useDocumentHead } from '../hooks/useDocumentHead'
 import { guidesIntro, guidesMetaDescription, guideDraftNotice, guideTopics } from '../data/guides'
@@ -53,7 +54,7 @@ function GuidesPage() {
               </div>
               <a
                 className="m-8 mt-6 inline-block text-style-body-md text-vermilion hover:underline w-fit"
-                href={topic.path}
+                href={routeHref(topic.path)}
                 onClick={(event) => {
                   event.preventDefault()
                   navigateTo(topic.path)
@@ -69,7 +70,7 @@ function GuidesPage() {
       <section className="text-center pb-8">
         <a
           className="bg-vermilion text-on-primary px-10 py-3 rounded-[2px] text-style-body-lg hover:bg-primary transition-colors duration-300 flex items-center gap-2 mx-auto w-fit"
-          href="/booking"
+          href={routeHref('/booking')}
           onClick={(event) => {
             event.preventDefault()
             navigateTo('/booking')

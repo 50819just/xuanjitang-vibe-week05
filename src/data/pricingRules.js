@@ -17,7 +17,7 @@ export const DEPOSIT_EXAMPLE = {
 export function resolveDepositAmount(serviceTotalAmount) {
   const amount = Number(serviceTotalAmount)
 
-  if (!Number.isInteger(amount) || amount <= 0) {
+  if (!Number.isSafeInteger(amount) || amount < 800) {
     return null
   }
 

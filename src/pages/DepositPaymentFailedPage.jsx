@@ -24,7 +24,10 @@ function DepositPaymentFailedPage() {
       return
     }
     queryDepositOrder(merchantTradeNo)
-      .then(setRecord)
+      .then(result => {
+        if (result.paymentStatus === 'paid') navigateTo(`/booking/payment/success?merchantTradeNo=${encodeURIComponent(merchantTradeNo)}`)
+        else setRecord(result)
+      })
       .catch((error) => setErrorMessage(error.message || '查詢付款結果失敗'))
       .finally(() => setIsLoading(false))
   }, [merchantTradeNo])
@@ -93,7 +96,7 @@ function DepositPaymentFailedPage() {
               <div className="flex flex-col gap-1 border-b border-ink/5 pb-2">
                 <span className="text-style-label-sm text-tea-brown uppercase tracking-wider">應付訂金</span>
                 <span className="text-style-body-lg text-vermilion font-medium">
-                  {Number.isFinite(Number(record?.depositAmount))
+                  {record?.depositAmount != null && Number.isFinite(Number(record.depositAmount))
                     ? `NT$${Number(record.depositAmount).toLocaleString('zh-Hant-TW')}`
                     : '—'}
                 </span>
@@ -111,7 +114,7 @@ function DepositPaymentFailedPage() {
             type="button"
             className="w-full md:w-auto bg-vermilion text-on-primary text-style-body-md px-12 py-4 hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-60"
             onClick={handleRetry}
-            disabled={isRetrying || !record?.bookingId}
+            disabled={isRetrying || !record?.bookingId || record?.paymentStatus === 'paid'}
           >
             <span className="material-symbols-outlined">refresh</span>
             {isRetrying ? '正在重新建立…' : isMember ? '重新支付預約訂金' : '登入後重新支付預約訂金'}
@@ -126,7 +129,7 @@ function DepositPaymentFailedPage() {
         </div>
 
         <div className="mt-8 text-center">
-          <p className="text-style-label-sm text-tea-brown/60">若您多次嘗試仍無法完成付款，請與我們聯繫。</p>
+          <p className="text-style-label-sm text-tea-brown/60">這是綠界測試流程，不提供真實客服或收款。</p>
         </div>
       </div>
     </div>

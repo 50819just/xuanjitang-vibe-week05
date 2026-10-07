@@ -1,3 +1,4 @@
+import { routeHref } from '../lib/routes'
 import { navigateTo } from '../hooks/useRouter'
 import { useDocumentHead } from '../hooks/useDocumentHead'
 import { getGuideBySlug, guideDraftNotice } from '../data/guides'
@@ -13,7 +14,7 @@ function GuideNotFound() {
       <p className="text-style-body-md text-tea-brown mb-8">這個知識主題可能已調整，請回到知識列表重新選擇。</p>
       <a
         className="inline-block bg-vermilion text-on-primary px-8 py-3 rounded-[2px] text-style-title-lg"
-        href="/guides"
+        href={routeHref('/guides')}
         onClick={(event) => {
           event.preventDefault()
           navigateTo('/guides')
@@ -66,7 +67,7 @@ function GuideArticlePage({ slug }) {
       <nav className="mb-8 pt-8 md:pt-16 text-style-body-md text-tea-brown" aria-label="麵包屑">
         <a
           className="hover:text-vermilion"
-          href="/guides"
+          href={routeHref('/guides')}
           onClick={(event) => {
             event.preventDefault()
             navigateTo('/guides')
@@ -166,7 +167,7 @@ function GuideArticlePage({ slug }) {
             </div>
             <a
               className="shrink-0 inline-block text-style-body-md text-vermilion hover:underline w-fit"
-              href={`/services/${relatedService.id}`}
+              href={routeHref(`/services/${relatedService.id}`)}
               onClick={(event) => {
                 event.preventDefault()
                 navigateTo(`/services/${relatedService.id}`)
@@ -181,7 +182,7 @@ function GuideArticlePage({ slug }) {
       <section className="text-center pb-8">
         <a
           className="bg-vermilion text-on-primary px-10 py-3 rounded-[2px] text-style-body-lg hover:bg-primary transition-colors duration-300 flex items-center gap-2 mx-auto w-fit"
-          href="/booking"
+          href={routeHref('/booking')}
           onClick={(event) => {
             event.preventDefault()
             navigateTo('/booking')

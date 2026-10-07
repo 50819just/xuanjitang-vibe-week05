@@ -1,3 +1,4 @@
+import { routeHref } from '../lib/routes'
 export const primaryNav = [
   { key: 'services', label: '服務項目', type: 'anchor', anchor: 'services' },
   { key: 'guides', label: '擇日與宅事知識', type: 'route', path: '/guides' },
@@ -16,7 +17,7 @@ export const footerNav = [
 export const primaryCta = { label: '開始預約', path: '/booking' }
 
 export function getNavHref(link) {
-  return link.type === 'anchor' ? `/#${link.anchor}` : link.path
+  return routeHref(link.type === 'anchor' ? `/?section=${link.anchor}` : link.path)
 }
 
 export function isNavLinkActive(link, pathname) {
