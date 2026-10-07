@@ -1,25 +1,33 @@
 {
   "date": "2026-10-07",
-  "current_project_files_scanned": 147,
+  "current_project_files_scanned": 153,
   "legacy_term_matches": 0,
   "submission_dist_identical": true,
-  "html_bytes": 6720521,
-  "html_sha256": "d06f94d98411554e8ef19293766bfdfef7c8a43c140fe39d816aa4f475b6fef7",
+  "html_bytes": 6718758,
+  "html_sha256": "d259a50cc4150c940945d215b9644d9215360ff47275d57673bce2f0217d4fc5",
   "frontend_test_key_or_old_api_matches": 0,
   "scope_note": "Current files only; original project and historical Git commits not rewritten.",
   "render_live_commit": "7f7e3bc",
   "mobile_qa_commit": "348ebd1",
-  "last_verified_pages_run": 37573406628,
-  "tracked_files_scanned": 146,
+  "last_verified_pages_run": 37596144576,
+  "tracked_files_scanned": 153,
   "public_html_dist_submission_identical": true,
-  "browser_latest_code_commit": "35c44ad",
+  "browser_latest_code_commit": "74e70f3",
   "icon_rendering": "inline SVG; no icon font ligatures",
-  "regression_tests": 12,
+  "regression_tests": 13,
   "mobile_browser_widths": [
     390,
     320
   ],
-  "validation_screenshot_commit": "35c44ad",
+  "validation_screenshot_commit": "74e70f3",
   "mobile_header": "normal document flow below 1024px; fixed desktop header",
-  "full_visual_sweep_complete": false
+  "full_visual_sweep_complete": false,
+  "targeted_visual_qa_complete": true,
+  "desktop_browser_viewport": [
+    1440,
+    900
+  ],
+  "mobile_browser_height": 844,
+  "visual_qa_report": "docs/VISUAL_QA_2026-10-07.md",
+  "render_health_reverified": true
 }

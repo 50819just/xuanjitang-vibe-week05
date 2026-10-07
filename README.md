@@ -25,6 +25,7 @@ Render 根網址沒有一般網站首頁，請用 `/api/health` 看啟動狀態�
 - `SPEC.md`：背景、目標、功能、流程、資料、例外與可測試驗收條件。
 - `docs/CHANGELOG.md`：實際與 AI 討論、修正、測試的迭代紀錄。
 - `docs/QA_2026-10-07.md`：本輪檢查結果與證據邊界。
+- `docs/VISUAL_QA_2026-10-07.md`：本輪公開桌機／手機針對性視覺驗收與截圖版本。
 - `docs/DEPLOYMENT_STATUS.md`：前後端部署與驗證狀態。
 - `docs/design/`：保留的視覺參考，不取代本次功能規格。
 - `submission/README.md`：可複製到作業文字輸入區的交付說明。

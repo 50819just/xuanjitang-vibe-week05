@@ -34,7 +34,9 @@
 
 **互動操作路徑**：開啟首頁 → 查看服務 → 開始預約 → 填寫4步 → 確認摘要 → 送出測試申請 → 模擬確認總價 → 示意登入 → 綠界測試付款頁。
 
-**驗收狀態**：已在公開網址實測完整表單送出、返回保留資料、必填防呆、手機選單、7個服務頁、3篇文章、價格與服務方式。Render可啟動，真實綠界查單回覆待付款狀態正常；程式檢查、12項自動測試及單檔建置通過。
+**驗收狀態**：已在公開網址實測完整表單送出、返回保留資料、必填防呆、手機選單、7個服務頁、3篇文章、價格與服務方式。Render可啟動，真實綠界查單回覆待付款狀態正常；程式檢查、13項自動測試及單檔建置通過。
+
+本輪另於1440×900、390×844及320×844確認品牌導覽、提示與SVG圖示，並抽查價格、服務及知識頁的手機排版；這是針對性驗收，不代表所有頁面、所有裝置皆已完整巡檢。
 
 **尚未完成的驗證**：目前停在綠界測試頁最終付款送出前；「刷卡完成、綠界實際通知、回站成功」尚未完整驗證，不宣稱已完成支付E2E。付款按鈕可抵達官方測試站，並非正式收款。
 
@@ -44,11 +46,14 @@
 ### 桌機首頁
 ![桌機首頁](https://raw.githubusercontent.com/50819just/xuanjitang-vibe-week05/main/docs/screenshots/desktop-home.png)
 
+### 手機首頁（灰色頂部問題修正版）
+![手機首頁](https://raw.githubusercontent.com/50819just/xuanjitang-vibe-week05/main/docs/screenshots/mobile-home.png)
+
 ### 手機預約表單
 ![手機預約表單](https://raw.githubusercontent.com/50819just/xuanjitang-vibe-week05/main/docs/screenshots/mobile-booking.png)
 
 ### 手機必填防呆
-驗證失敗時提示會出現在欄位上方，並自動捲回可見位置；手機導覽隨頁面捲動，不遮蓋欄位。手機預約截圖來自348ebd1，防呆於35c44ad公開版重拍（圖片內容相同）。
+驗證失敗時提示會出現在欄位上方，並自動捲回可見位置；手機導覽隨頁面捲動，不遮蓋欄位。本輪手機預約與防呆均於74e70f3公開版重拍；390px及320px提示、按鈕與選單重驗，截圖不再被固定導覽遮擋。
 ![手機必填防呆](https://raw.githubusercontent.com/50819just/xuanjitang-vibe-week05/main/docs/screenshots/mobile-validation.png)
 
 ## 與AI反覆調整的過程
@@ -60,10 +65,13 @@
 - 使用者指出舊手機防呆截圖內容被固定導覽遮擋，改為手機正常排版流、錯誤聚焦與自動捲回；390px及320px重驗後更新截圖。
 - 手機QA發現320px頂部按鈕擠到選單，調整成小螢幕保留選單，預約入口仍在選單與內文。
 
+- 接續使用者留下的視覺問題，發現桌機首頁仍有灰色透明導覽，統一為淡色品牌導覽；在公開網站重驗後更新桌機與手機截圖及QA文件。
+
 ## 來源與使用限制
 本作品是本人既有擇日館網站的獨立改作，重用部分原有設計、素材與程式；這次新增獨立部署、單檔交付、測試環境限制、驗證修正和QA。未宣稱全部從零製作。完整規格與迭代記錄：
 - [功能規格書](https://github.com/50819just/xuanjitang-vibe-week05/blob/main/SPEC.md)
 - [AI修改紀錄](https://github.com/50819just/xuanjitang-vibe-week05/blob/main/docs/CHANGELOG.md)
+- [本輪視覺驗收紀錄](https://github.com/50819just/xuanjitang-vibe-week05/blob/main/docs/VISUAL_QA_2026-10-07.md)
 - [檢查結果與尚未驗證項目](https://github.com/50819just/xuanjitang-vibe-week05/blob/main/docs/QA_2026-10-07.md)
 
 請只使用虛構測試資料，不輸入真實個資、正式帳密或信用卡。示意登入不是真正帳號系統，LINE未啟用。Render免費服務可能休眠，初次操作請稍等後重試；重啟／部署可能清除測試資料。這些是展示版限制，正式營運仍需資料庫、真正認證、權限與安全審查。
